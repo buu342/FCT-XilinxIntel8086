@@ -1,0 +1,50 @@
+ command line:
+   ./TestBenchWaveForm8086_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  1045
+
+Fri Jun 15 00:57:10 2018
+
+Total Line Count : 10466
+
+ Elaboration time : 0.040058 sec.
+
+ Estimate current memory usage : 123.47 Meg. 
+
+ Total Signals          : 6105
+ Total Nets             : 2300
+ Total Signal Drivers   : 1316
+ Total Blocks           : 1329
+ Total Primitive Blocks : 1144
+ Total Processes        : 1456
+ Total Traceable Variables  : 956
+ Total Scalar Nets and Variables : 8749
+ntrace select -o on -n /TestBenchWaveForm8086/clk 
+ntrace select -o on -n /TestBenchWaveForm8086/reset 
+ntrace select -o on -n /TestBenchWaveForm8086/UUT/fetch1 
+ntrace select -o on -n /TestBenchWaveForm8086/UUT/fetch2 
+ntrace select -o on -n /TestBenchWaveForm8086/UUT/data_bus 
+ntrace select -o on -n /TestBenchWaveForm8086/q_a 
+ntrace select -o on -n /TestBenchWaveForm8086/q_b 
+ntrace select -o on -n /TestBenchWaveForm8086/q_c 
+ntrace select -o on -n /TestBenchWaveForm8086/q_d 
+ntrace select -o on -n /TestBenchWaveForm8086/q_67 
+ntrace select -o on -n /TestBenchWaveForm8086/q_alu 
+ntrace select -o on -n /TestBenchWaveForm8086/q_mar 
+ntrace select -o on -n /TestBenchWaveForm8086/q_pc 
+ntrace select -o on -n /TestBenchWaveForm8086/q_sp 
+ntrace select -o on -n /TestBenchWaveForm8086/UUT/addr_bus 
+ntrace select -o on -n /TestBenchWaveForm8086/UUT/op 
+ntrace select -o on -n /TestBenchWaveForm8086/UUT/flags 
+ntrace start 
+isimrun 100000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+
+ Simulation time 0.140202 sec.
+
+ Estimate current memory usage : 129.761 Meg. 
+
+Fri Jun 15 00:59:38 2018
+

@@ -1,0 +1,269 @@
+--------------------------------------------------------------------------------
+-- Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+--------------------------------------------------------------------------------
+--   ____  ____ 
+--  /   /\/   / 
+-- /___/  \  /    Vendor: Xilinx 
+-- \   \   \/     Version : 9.2i
+--  \   \         Application : sch2vhdl
+--  /   /         Filename : FR.vhf
+-- /___/   /\     Timestamp : 06/15/2018 00:42:23
+-- \   \  /  \ 
+--  \___\/\___\ 
+--
+--Command: C:\Xilinx92i\bin\nt\sch2vhdl.exe -intstyle ise -family spartan3e -flat -suppress -w "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/FR.sch" FR.vhf
+--Design Name: FR
+--Device: spartan3e
+--Purpose:
+--    This vhdl netlist is translated from an ECS schematic. It can be 
+--    synthesis and simulted, but it should not be modified. 
+--
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity OBUFT8_MXILINX_FR is
+   port ( I : in    std_logic_vector (7 downto 0); 
+          T : in    std_logic; 
+          O : out   std_logic_vector (7 downto 0));
+end OBUFT8_MXILINX_FR;
+
+architecture BEHAVIORAL of OBUFT8_MXILINX_FR is
+   attribute IOSTANDARD : string ;
+   attribute SLEW       : string ;
+   attribute DRIVE      : string ;
+   attribute BOX_TYPE   : string ;
+   component OBUFT
+      port ( I : in    std_logic; 
+             T : in    std_logic; 
+             O : out   std_logic);
+   end component;
+   attribute IOSTANDARD of OBUFT : component is "DEFAULT";
+   attribute SLEW of OBUFT : component is "SLOW";
+   attribute DRIVE of OBUFT : component is "12";
+   attribute BOX_TYPE of OBUFT : component is "BLACK_BOX";
+   
+begin
+   I_36_30 : OBUFT
+      port map (I=>I(0),
+                T=>T,
+                O=>O(0));
+   
+   I_36_31 : OBUFT
+      port map (I=>I(1),
+                T=>T,
+                O=>O(1));
+   
+   I_36_32 : OBUFT
+      port map (I=>I(2),
+                T=>T,
+                O=>O(2));
+   
+   I_36_33 : OBUFT
+      port map (I=>I(3),
+                T=>T,
+                O=>O(3));
+   
+   I_36_34 : OBUFT
+      port map (I=>I(7),
+                T=>T,
+                O=>O(7));
+   
+   I_36_35 : OBUFT
+      port map (I=>I(6),
+                T=>T,
+                O=>O(6));
+   
+   I_36_36 : OBUFT
+      port map (I=>I(5),
+                T=>T,
+                O=>O(5));
+   
+   I_36_37 : OBUFT
+      port map (I=>I(4),
+                T=>T,
+                O=>O(4));
+   
+end BEHAVIORAL;
+
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity FD8CE_MXILINX_FR is
+   port ( C   : in    std_logic; 
+          CE  : in    std_logic; 
+          CLR : in    std_logic; 
+          D   : in    std_logic_vector (7 downto 0); 
+          Q   : out   std_logic_vector (7 downto 0));
+end FD8CE_MXILINX_FR;
+
+architecture BEHAVIORAL of FD8CE_MXILINX_FR is
+   attribute INIT       : string ;
+   attribute BOX_TYPE   : string ;
+   component FDCE
+      -- synopsys translate_off
+      generic( INIT : bit :=  '0');
+      -- synopsys translate_on
+      port ( C   : in    std_logic; 
+             CE  : in    std_logic; 
+             CLR : in    std_logic; 
+             D   : in    std_logic; 
+             Q   : out   std_logic);
+   end component;
+   attribute INIT of FDCE : component is "0";
+   attribute BOX_TYPE of FDCE : component is "BLACK_BOX";
+   
+begin
+   I_Q0 : FDCE
+      port map (C=>C,
+                CE=>CE,
+                CLR=>CLR,
+                D=>D(0),
+                Q=>Q(0));
+   
+   I_Q1 : FDCE
+      port map (C=>C,
+                CE=>CE,
+                CLR=>CLR,
+                D=>D(1),
+                Q=>Q(1));
+   
+   I_Q2 : FDCE
+      port map (C=>C,
+                CE=>CE,
+                CLR=>CLR,
+                D=>D(2),
+                Q=>Q(2));
+   
+   I_Q3 : FDCE
+      port map (C=>C,
+                CE=>CE,
+                CLR=>CLR,
+                D=>D(3),
+                Q=>Q(3));
+   
+   I_Q4 : FDCE
+      port map (C=>C,
+                CE=>CE,
+                CLR=>CLR,
+                D=>D(4),
+                Q=>Q(4));
+   
+   I_Q5 : FDCE
+      port map (C=>C,
+                CE=>CE,
+                CLR=>CLR,
+                D=>D(5),
+                Q=>Q(5));
+   
+   I_Q6 : FDCE
+      port map (C=>C,
+                CE=>CE,
+                CLR=>CLR,
+                D=>D(6),
+                Q=>Q(6));
+   
+   I_Q7 : FDCE
+      port map (C=>C,
+                CE=>CE,
+                CLR=>CLR,
+                D=>D(7),
+                Q=>Q(7));
+   
+end BEHAVIORAL;
+
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity FR is
+   port ( CLK      : in    std_logic; 
+          Flags_In : in    std_logic_vector (7 downto 0); 
+          RB       : in    std_logic; 
+          RF       : in    std_logic; 
+          WF       : in    std_logic; 
+          Bus_Q    : out   std_logic_vector (7 downto 0); 
+          Data_Out : out   std_logic_vector (7 downto 0); 
+          ALU      : inout std_logic_vector (7 downto 0));
+end FR;
+
+architecture BEHAVIORAL of FR is
+   attribute HU_SET     : string ;
+   attribute BOX_TYPE   : string ;
+   signal XLXN_28     : std_logic;
+   signal XLXN_34     : std_logic;
+   signal XLXN_36     : std_logic;
+   signal Bus_Q_DUMMY : std_logic_vector (7 downto 0);
+   component OBUFT8_MXILINX_FR
+      port ( I : in    std_logic_vector (7 downto 0); 
+             T : in    std_logic; 
+             O : out   std_logic_vector (7 downto 0));
+   end component;
+   
+   component FD8CE_MXILINX_FR
+      port ( C   : in    std_logic; 
+             CE  : in    std_logic; 
+             CLR : in    std_logic; 
+             D   : in    std_logic_vector (7 downto 0); 
+             Q   : out   std_logic_vector (7 downto 0));
+   end component;
+   
+   component GND
+      port ( G : out   std_logic);
+   end component;
+   attribute BOX_TYPE of GND : component is "BLACK_BOX";
+   
+   component INV
+      port ( I : in    std_logic; 
+             O : out   std_logic);
+   end component;
+   attribute BOX_TYPE of INV : component is "BLACK_BOX";
+   
+   attribute HU_SET of XLXI_7 : label is "XLXI_7_0";
+   attribute HU_SET of XLXI_18 : label is "XLXI_18_1";
+   attribute HU_SET of XLXI_26 : label is "XLXI_26_2";
+begin
+   Bus_Q(7 downto 0) <= Bus_Q_DUMMY(7 downto 0);
+   XLXI_7 : OBUFT8_MXILINX_FR
+      port map (I(7 downto 0)=>Bus_Q_DUMMY(7 downto 0),
+                T=>XLXN_34,
+                O(7 downto 0)=>Data_Out(7 downto 0));
+   
+   XLXI_18 : FD8CE_MXILINX_FR
+      port map (C=>CLK,
+                CE=>WF,
+                CLR=>XLXN_28,
+                D(7 downto 0)=>ALU(7 downto 0),
+                Q(7 downto 0)=>Bus_Q_DUMMY(7 downto 0));
+   
+   XLXI_19 : GND
+      port map (G=>XLXN_28);
+   
+   XLXI_21 : INV
+      port map (I=>RF,
+                O=>XLXN_34);
+   
+   XLXI_23 : INV
+      port map (I=>RB,
+                O=>XLXN_36);
+   
+   XLXI_26 : OBUFT8_MXILINX_FR
+      port map (I(7 downto 0)=>Flags_In(7 downto 0),
+                T=>XLXN_36,
+                O(7 downto 0)=>ALU(7 downto 0));
+   
+end BEHAVIORAL;
+
+
