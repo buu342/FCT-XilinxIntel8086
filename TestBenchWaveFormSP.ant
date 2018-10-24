@@ -1,0 +1,194 @@
+--------------------------------------------------------------------------------
+-- Copyright (c) 1995-2007 Xilinx, Inc.
+-- All Right Reserved.
+--------------------------------------------------------------------------------
+--   ____  ____ 
+--  /   /\/   / 
+-- /___/  \  /    Vendor: Xilinx 
+-- \   \   \/     Version : 9.2i
+--  \   \         Application : ISE
+--  /   /         Filename : TestBenchWaveFormSP.ant
+-- /___/   /\     Timestamp : Thu Jun 14 15:37:12 2018
+-- \   \  /  \ 
+--  \___\/\___\ 
+--
+--Command: 
+--Design Name: TestBenchWaveFormSP
+--Device: Xilinx
+--
+
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+USE IEEE.STD_LOGIC_TEXTIO.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE STD.TEXTIO.ALL;
+
+ENTITY TestBenchWaveFormSP IS
+END TestBenchWaveFormSP;
+
+ARCHITECTURE testbench_arch OF TestBenchWaveFormSP IS
+    FILE RESULTS: TEXT OPEN WRITE_MODE IS "C:\Documents and Settings\SL2aluno\Desktop\Nosso\TF2\TestBenchWaveFormSP.ano";
+
+    COMPONENT SP
+        PORT (
+            CLK : In std_logic;
+            DSP : In std_logic;
+            ISP : In std_logic;
+            RSP : In std_logic;
+            SP_In : In std_logic_vector (7 DownTo 0);
+            WSP : In std_logic;
+            ZSP : In std_logic;
+            Q_SP : Out std_logic_vector (7 DownTo 0);
+            SP_Out : Out std_logic_vector (7 DownTo 0)
+        );
+    END COMPONENT;
+
+    SIGNAL CLK : std_logic := '0';
+    SIGNAL DSP : std_logic := '0';
+    SIGNAL ISP : std_logic := '0';
+    SIGNAL RSP : std_logic := '0';
+    SIGNAL SP_In : std_logic_vector (7 DownTo 0) := "00000000";
+    SIGNAL WSP : std_logic := '0';
+    SIGNAL ZSP : std_logic := '0';
+    SIGNAL Q_SP : std_logic_vector (7 DownTo 0) := "";
+    SIGNAL SP_Out : std_logic_vector (7 DownTo 0) := "00000000";
+
+    SHARED VARIABLE TX_ERROR : INTEGER := 0;
+    SHARED VARIABLE TX_OUT : LINE;
+
+    constant PERIOD : time := 200 ns;
+    constant DUTY_CYCLE : real := 0.5;
+    constant OFFSET : time := 100 ns;
+
+    BEGIN
+        UUT : SP
+        PORT MAP (
+            CLK => CLK,
+            DSP => DSP,
+            ISP => ISP,
+            RSP => RSP,
+            SP_In => SP_In,
+            WSP => WSP,
+            ZSP => ZSP,
+            Q_SP => Q_SP,
+            SP_Out => SP_Out
+        );
+
+        PROCESS    -- clock process for CLK
+        BEGIN
+            WAIT for OFFSET;
+            CLOCK_LOOP : LOOP
+                CLK <= '0';
+                WAIT FOR (PERIOD - (PERIOD * DUTY_CYCLE));
+                CLK <= '1';
+                WAIT FOR (PERIOD * DUTY_CYCLE);
+            END LOOP CLOCK_LOOP;
+        END PROCESS;
+
+        PROCESS    -- Annotation process for CLK
+            VARIABLE TX_TIME : INTEGER := 0;
+
+            PROCEDURE ANNOTATE_Q_SP(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", Q_SP, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, Q_SP);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_SP_Out(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", SP_Out, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, SP_Out);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+        BEGIN
+            WAIT for 1 fs;
+            ANNOTATE_Q_SP(0);
+            ANNOTATE_SP_Out(0);
+            WAIT for OFFSET;
+            TX_TIME := TX_TIME + 100;
+            ANNO_LOOP : LOOP
+                --Rising Edge
+                WAIT for 115 ns;
+                TX_TIME := TX_TIME + 115;
+                ANNOTATE_Q_SP(TX_TIME);
+                ANNOTATE_SP_Out(TX_TIME);
+                WAIT for 85 ns;
+                TX_TIME := TX_TIME + 85;
+            END LOOP ANNO_LOOP;
+        END PROCESS;
+
+        PROCESS
+            BEGIN
+                -- -------------  Current Time:  185ns
+                WAIT FOR 185 ns;
+                ISP <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  785ns
+                WAIT FOR 600 ns;
+                DSP <= '1';
+                ISP <= '0';
+                -- -------------------------------------
+                -- -------------  Current Time:  985ns
+                WAIT FOR 200 ns;
+                DSP <= '0';
+                RSP <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  1185ns
+                WAIT FOR 200 ns;
+                RSP <= '0';
+                ZSP <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  1385ns
+                WAIT FOR 200 ns;
+                RSP <= '1';
+                ZSP <= '0';
+                -- -------------------------------------
+                -- -------------  Current Time:  1585ns
+                WAIT FOR 200 ns;
+                RSP <= '0';
+                WSP <= '1';
+                SP_In <= "00001010";
+                -- -------------------------------------
+                -- -------------  Current Time:  1785ns
+                WAIT FOR 200 ns;
+                RSP <= '1';
+                WSP <= '0';
+                SP_In <= "ZZZZZZZZ";
+                -- -------------------------------------
+                -- -------------  Current Time:  1985ns
+                WAIT FOR 200 ns;
+                RSP <= '0';
+                -- -------------------------------------
+                WAIT FOR 8215 ns;
+
+                STD.TEXTIO.write(TX_OUT, string'("Total[]"));
+                STD.TEXTIO.writeline(RESULTS, TX_OUT);
+                ASSERT (FALSE) REPORT
+                    "Success! Simulation for annotation completed"
+                    SEVERITY FAILURE;
+            END PROCESS;
+
+    END testbench_arch;
+

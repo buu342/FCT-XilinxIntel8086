@@ -1,0 +1,629 @@
+--------------------------------------------------------------------------------
+-- Copyright (c) 1995-2007 Xilinx, Inc.
+-- All Right Reserved.
+--------------------------------------------------------------------------------
+--   ____  ____ 
+--  /   /\/   / 
+-- /___/  \  /    Vendor: Xilinx 
+-- \   \   \/     Version : 9.2i
+--  \   \         Application : ISE
+--  /   /         Filename : TestBenchWaveFormCPU.ant
+-- /___/   /\     Timestamp : Wed Jun 13 23:24:33 2018
+-- \   \  /  \ 
+--  \___\/\___\ 
+--
+--Command: 
+--Design Name: TestBenchWaveFormCPU
+--Device: Xilinx
+--
+
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+USE IEEE.STD_LOGIC_TEXTIO.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE STD.TEXTIO.ALL;
+
+ENTITY TestBenchWaveFormCPU IS
+END TestBenchWaveFormCPU;
+
+ARCHITECTURE testbench_arch OF TestBenchWaveFormCPU IS
+    FILE RESULTS: TEXT OPEN WRITE_MODE IS "C:\Documents and Settings\SL2aluno\Desktop\Nosso\TF2\TestBenchWaveFormCPU.ano";
+
+    COMPONENT CPU
+        PORT (
+            CA : In std_logic;
+            CB : In std_logic;
+            CC : In std_logic;
+            CD : In std_logic;
+            CLK : In std_logic;
+            CPC : In std_logic;
+            CTMP : In std_logic;
+            DSP : In std_logic;
+            IA : In std_logic;
+            IB : In std_logic;
+            IC : In std_logic;
+            ID : In std_logic;
+            IPC : In std_logic;
+            ISP : In std_logic;
+            ITMP : In std_logic;
+            LDTMP : In std_logic;
+            RA : In std_logic;
+            RB : In std_logic;
+            RBus : In std_logic;
+            RC : In std_logic;
+            RD : In std_logic;
+            RDADD : In std_logic;
+            RDAND : In std_logic;
+            RDNOT : In std_logic;
+            RDOR : In std_logic;
+            RDXOR : In std_logic;
+            RF : In std_logic;
+            RIR : In std_logic;
+            RMAR : In std_logic;
+            RPC : In std_logic;
+            RSignals : In std_logic;
+            RSP : In std_logic;
+            RTMP : In std_logic;
+            WA : In std_logic;
+            WB : In std_logic;
+            WC : In std_logic;
+            WD : In std_logic;
+            WF : In std_logic;
+            WIR : In std_logic;
+            WMAR : In std_logic;
+            WPC : In std_logic;
+            WSP : In std_logic;
+            WTMP : In std_logic;
+            ZA : In std_logic;
+            ZB : In std_logic;
+            ZC : In std_logic;
+            ZD : In std_logic;
+            ZPC : In std_logic;
+            ZSP : In std_logic;
+            ZTMP : In std_logic;
+            ADDR_BUS : Out std_logic_vector (7 DownTo 0);
+            A_Q : Out std_logic_vector (7 DownTo 0);
+            B_Q : Out std_logic_vector (7 DownTo 0);
+            C_Q : Out std_logic_vector (7 DownTo 0);
+            D_Q : Out std_logic_vector (7 DownTo 0);
+            QALU : Out std_logic_vector (7 DownTo 0);
+            QF : Out std_logic_vector (7 DownTo 0);
+            QIR : Out std_logic_vector (7 DownTo 0);
+            Q_MAR : Out std_logic_vector (7 DownTo 0);
+            Q_PC : Out std_logic_vector (7 DownTo 0);
+            Data_Bus : InOut std_logic_vector (7 DownTo 0)
+        );
+    END COMPONENT;
+
+    SIGNAL CA : std_logic := '0';
+    SIGNAL CB : std_logic := '0';
+    SIGNAL CC : std_logic := '0';
+    SIGNAL CD : std_logic := '0';
+    SIGNAL CLK : std_logic := '0';
+    SIGNAL CPC : std_logic := '0';
+    SIGNAL CTMP : std_logic := '0';
+    SIGNAL DSP : std_logic := '0';
+    SIGNAL IA : std_logic := '0';
+    SIGNAL IB : std_logic := '0';
+    SIGNAL IC : std_logic := '0';
+    SIGNAL ID : std_logic := '0';
+    SIGNAL IPC : std_logic := '0';
+    SIGNAL ISP : std_logic := '0';
+    SIGNAL ITMP : std_logic := '0';
+    SIGNAL LDTMP : std_logic := '0';
+    SIGNAL RA : std_logic := '0';
+    SIGNAL RB : std_logic := '0';
+    SIGNAL RBus : std_logic := '0';
+    SIGNAL RC : std_logic := '0';
+    SIGNAL RD : std_logic := '0';
+    SIGNAL RDADD : std_logic := '0';
+    SIGNAL RDAND : std_logic := '0';
+    SIGNAL RDNOT : std_logic := '0';
+    SIGNAL RDOR : std_logic := '0';
+    SIGNAL RDXOR : std_logic := '0';
+    SIGNAL RF : std_logic := '0';
+    SIGNAL RIR : std_logic := '0';
+    SIGNAL RMAR : std_logic := '0';
+    SIGNAL RPC : std_logic := '0';
+    SIGNAL RSignals : std_logic := '0';
+    SIGNAL RSP : std_logic := '0';
+    SIGNAL RTMP : std_logic := '0';
+    SIGNAL WA : std_logic := '0';
+    SIGNAL WB : std_logic := '0';
+    SIGNAL WC : std_logic := '0';
+    SIGNAL WD : std_logic := '0';
+    SIGNAL WF : std_logic := '0';
+    SIGNAL WIR : std_logic := '0';
+    SIGNAL WMAR : std_logic := '0';
+    SIGNAL WPC : std_logic := '0';
+    SIGNAL WSP : std_logic := '0';
+    SIGNAL WTMP : std_logic := '0';
+    SIGNAL ZA : std_logic := '0';
+    SIGNAL ZB : std_logic := '0';
+    SIGNAL ZC : std_logic := '0';
+    SIGNAL ZD : std_logic := '0';
+    SIGNAL ZPC : std_logic := '0';
+    SIGNAL ZSP : std_logic := '0';
+    SIGNAL ZTMP : std_logic := '0';
+    SIGNAL ADDR_BUS : std_logic_vector (7 DownTo 0) := "00000000";
+    SIGNAL A_Q : std_logic_vector (7 DownTo 0) := "00000000";
+    SIGNAL B_Q : std_logic_vector (7 DownTo 0) := "00000000";
+    SIGNAL C_Q : std_logic_vector (7 DownTo 0) := "00000000";
+    SIGNAL D_Q : std_logic_vector (7 DownTo 0) := "00000000";
+    SIGNAL QALU : std_logic_vector (7 DownTo 0) := "00000000";
+    SIGNAL QF : std_logic_vector (7 DownTo 0) := "00000000";
+    SIGNAL QIR : std_logic_vector (7 DownTo 0) := "00000000";
+    SIGNAL Q_MAR : std_logic_vector (7 DownTo 0) := "";
+    SIGNAL Q_PC : std_logic_vector (7 DownTo 0) := "00000000";
+    SIGNAL Data_Bus : std_logic_vector (7 DownTo 0) := "ZZZZZZZZ";
+
+    SHARED VARIABLE TX_ERROR : INTEGER := 0;
+    SHARED VARIABLE TX_OUT : LINE;
+
+    constant PERIOD : time := 200 ns;
+    constant DUTY_CYCLE : real := 0.5;
+    constant OFFSET : time := 100 ns;
+
+    BEGIN
+        UUT : CPU
+        PORT MAP (
+            CA => CA,
+            CB => CB,
+            CC => CC,
+            CD => CD,
+            CLK => CLK,
+            CPC => CPC,
+            CTMP => CTMP,
+            DSP => DSP,
+            IA => IA,
+            IB => IB,
+            IC => IC,
+            ID => ID,
+            IPC => IPC,
+            ISP => ISP,
+            ITMP => ITMP,
+            LDTMP => LDTMP,
+            RA => RA,
+            RB => RB,
+            RBus => RBus,
+            RC => RC,
+            RD => RD,
+            RDADD => RDADD,
+            RDAND => RDAND,
+            RDNOT => RDNOT,
+            RDOR => RDOR,
+            RDXOR => RDXOR,
+            RF => RF,
+            RIR => RIR,
+            RMAR => RMAR,
+            RPC => RPC,
+            RSignals => RSignals,
+            RSP => RSP,
+            RTMP => RTMP,
+            WA => WA,
+            WB => WB,
+            WC => WC,
+            WD => WD,
+            WF => WF,
+            WIR => WIR,
+            WMAR => WMAR,
+            WPC => WPC,
+            WSP => WSP,
+            WTMP => WTMP,
+            ZA => ZA,
+            ZB => ZB,
+            ZC => ZC,
+            ZD => ZD,
+            ZPC => ZPC,
+            ZSP => ZSP,
+            ZTMP => ZTMP,
+            ADDR_BUS => ADDR_BUS,
+            A_Q => A_Q,
+            B_Q => B_Q,
+            C_Q => C_Q,
+            D_Q => D_Q,
+            QALU => QALU,
+            QF => QF,
+            QIR => QIR,
+            Q_MAR => Q_MAR,
+            Q_PC => Q_PC,
+            Data_Bus => Data_Bus
+        );
+
+        PROCESS    -- clock process for CLK
+        BEGIN
+            WAIT for OFFSET;
+            CLOCK_LOOP : LOOP
+                CLK <= '0';
+                WAIT FOR (PERIOD - (PERIOD * DUTY_CYCLE));
+                CLK <= '1';
+                WAIT FOR (PERIOD * DUTY_CYCLE);
+            END LOOP CLOCK_LOOP;
+        END PROCESS;
+
+        PROCESS    -- Annotation process for CLK
+            VARIABLE TX_TIME : INTEGER := 0;
+
+            PROCEDURE ANNOTATE_ADDR_BUS(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", ADDR_BUS, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, ADDR_BUS);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_A_Q(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", A_Q, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, A_Q);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_B_Q(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", B_Q, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, B_Q);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_C_Q(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", C_Q, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, C_Q);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_D_Q(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", D_Q, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, D_Q);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_QALU(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", QALU, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, QALU);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_QF(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", QF, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, QF);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_QIR(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", QIR, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, QIR);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_Q_MAR(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", Q_MAR, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, Q_MAR);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_Q_PC(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", Q_PC, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, Q_PC);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+        BEGIN
+            WAIT for 1 fs;
+            ANNOTATE_ADDR_BUS(0);
+            ANNOTATE_A_Q(0);
+            ANNOTATE_B_Q(0);
+            ANNOTATE_C_Q(0);
+            ANNOTATE_D_Q(0);
+            ANNOTATE_QALU(0);
+            ANNOTATE_QF(0);
+            ANNOTATE_QIR(0);
+            ANNOTATE_Q_MAR(0);
+            ANNOTATE_Q_PC(0);
+            WAIT for OFFSET;
+            TX_TIME := TX_TIME + 100;
+            ANNO_LOOP : LOOP
+                --Rising Edge
+                WAIT for 115 ns;
+                TX_TIME := TX_TIME + 115;
+                ANNOTATE_ADDR_BUS(TX_TIME);
+                ANNOTATE_A_Q(TX_TIME);
+                ANNOTATE_B_Q(TX_TIME);
+                ANNOTATE_C_Q(TX_TIME);
+                ANNOTATE_D_Q(TX_TIME);
+                ANNOTATE_QALU(TX_TIME);
+                ANNOTATE_QF(TX_TIME);
+                ANNOTATE_QIR(TX_TIME);
+                ANNOTATE_Q_MAR(TX_TIME);
+                ANNOTATE_Q_PC(TX_TIME);
+                WAIT for 85 ns;
+                TX_TIME := TX_TIME + 85;
+            END LOOP ANNO_LOOP;
+        END PROCESS;
+
+        PROCESS
+            BEGIN
+                -- -------------  Current Time:  185ns
+                WAIT FOR 185 ns;
+                LDTMP <= '1';
+                RBus <= '1';
+                WA <= '1';
+                WB <= '1';
+                WC <= '1';
+                WD <= '1';
+                WF <= '1';
+                WIR <= '1';
+                WMAR <= '1';
+                WPC <= '1';
+                WSP <= '1';
+                WTMP <= '1';
+                Data_Bus <= "00000101";
+                -- -------------------------------------
+                -- -------------  Current Time:  385ns
+                WAIT FOR 200 ns;
+                IA <= '1';
+                IB <= '1';
+                IC <= '1';
+                ID <= '1';
+                IPC <= '1';
+                ISP <= '1';
+                ITMP <= '1';
+                LDTMP <= '0';
+                RBus <= '0';
+                WA <= '0';
+                WB <= '0';
+                WC <= '0';
+                WD <= '0';
+                WF <= '0';
+                WIR <= '0';
+                WMAR <= '0';
+                WPC <= '0';
+                WSP <= '0';
+                WTMP <= '0';
+                Data_Bus <= "ZZZZZZZZ";
+                -- -------------------------------------
+                -- -------------  Current Time:  585ns
+                WAIT FOR 200 ns;
+                CA <= '1';
+                CB <= '1';
+                CC <= '1';
+                CD <= '1';
+                CPC <= '1';
+                CTMP <= '1';
+                DSP <= '1';
+                IA <= '0';
+                IB <= '0';
+                IC <= '0';
+                ID <= '0';
+                IPC <= '0';
+                ISP <= '0';
+                ITMP <= '0';
+                -- -------------------------------------
+                -- -------------  Current Time:  785ns
+                WAIT FOR 200 ns;
+                CA <= '0';
+                CB <= '0';
+                CC <= '0';
+                CD <= '0';
+                CPC <= '0';
+                CTMP <= '0';
+                DSP <= '0';
+                RA <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  985ns
+                WAIT FOR 200 ns;
+                RA <= '0';
+                RB <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  1185ns
+                WAIT FOR 200 ns;
+                RB <= '0';
+                RC <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  1385ns
+                WAIT FOR 200 ns;
+                RC <= '0';
+                RD <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  1585ns
+                WAIT FOR 200 ns;
+                RD <= '0';
+                RF <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  1785ns
+                WAIT FOR 200 ns;
+                RF <= '0';
+                RIR <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  1985ns
+                WAIT FOR 200 ns;
+                RIR <= '0';
+                RMAR <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  2185ns
+                WAIT FOR 200 ns;
+                RMAR <= '0';
+                RPC <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  2385ns
+                WAIT FOR 200 ns;
+                RPC <= '0';
+                RSP <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  2585ns
+                WAIT FOR 200 ns;
+                RSP <= '0';
+                RTMP <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  2785ns
+                WAIT FOR 200 ns;
+                RTMP <= '0';
+                ZA <= '1';
+                ZB <= '1';
+                ZC <= '1';
+                ZD <= '1';
+                ZPC <= '1';
+                ZSP <= '1';
+                ZTMP <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  2985ns
+                WAIT FOR 200 ns;
+                RA <= '1';
+                ZA <= '0';
+                ZB <= '0';
+                ZC <= '0';
+                ZD <= '0';
+                ZPC <= '0';
+                ZSP <= '0';
+                ZTMP <= '0';
+                -- -------------------------------------
+                -- -------------  Current Time:  3185ns
+                WAIT FOR 200 ns;
+                RA <= '0';
+                RB <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  3385ns
+                WAIT FOR 200 ns;
+                RB <= '0';
+                RC <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  3585ns
+                WAIT FOR 200 ns;
+                RC <= '0';
+                RD <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  3785ns
+                WAIT FOR 200 ns;
+                RD <= '0';
+                RF <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  3985ns
+                WAIT FOR 200 ns;
+                RF <= '0';
+                RIR <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  4185ns
+                WAIT FOR 200 ns;
+                RIR <= '0';
+                RMAR <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  4385ns
+                WAIT FOR 200 ns;
+                RMAR <= '0';
+                RPC <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  4585ns
+                WAIT FOR 200 ns;
+                RPC <= '0';
+                RSP <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  4785ns
+                WAIT FOR 200 ns;
+                RSP <= '0';
+                RTMP <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  4985ns
+                WAIT FOR 200 ns;
+                RTMP <= '0';
+                -- -------------------------------------
+                WAIT FOR 5215 ns;
+
+                STD.TEXTIO.write(TX_OUT, string'("Total[]"));
+                STD.TEXTIO.writeline(RESULTS, TX_OUT);
+                ASSERT (FALSE) REPORT
+                    "Success! Simulation for annotation completed"
+                    SEVERITY FAILURE;
+            END PROCESS;
+
+    END testbench_arch;
+
