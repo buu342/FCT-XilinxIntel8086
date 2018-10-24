@@ -1,0 +1,368 @@
+V3 205
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//ALU.vhf" 2018/06/14.01:21:09 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//AND8_BUS.vhf" 2018/06/14.01:21:07 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//CONTROLADOR.vhd" 2018/06/14.00:01:43 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//CPU.vhf" 2018/06/14.01:30:43 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//FR.vhf" 2018/06/14.01:21:11 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//Intel8086.vhf" 2018/06/14.01:30:46 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//IR.vhf" 2018/06/14.01:21:13 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//MAR.vhf" 2018/06/14.01:21:14 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//OR8_BUS.vhf" 2018/06/14.01:21:07 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//ram128.vhf" 2018/06/14.01:21:17 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//Ram4x1.vhf" 2018/06/14.01:21:05 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//Ram8x1.vhf" 2018/06/14.01:21:06 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//ram_rom256.vhf" 2018/06/14.01:21:18 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//rom128.vhf" 2018/06/14.01:21:19 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//SP.vhf" 2018/06/14.15:28:04 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2//XOR8_BUS.vhf" 2018/06/14.01:21:08 J.36
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ALU.vhf" 2018/06/15.00:31:41 J.36
+EN work/OBUFT8_MXILINX_ALU 1529019393 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ALU.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/OBUFT8_MXILINX_ALU/BEHAVIORAL 1529019394 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ALU.vhf" \
+      EN work/OBUFT8_MXILINX_ALU 1529019393 CP OBUFT
+EN work/INV8_MXILINX_ALU 1529019395 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ALU.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/INV8_MXILINX_ALU/BEHAVIORAL 1529019396 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ALU.vhf" \
+      EN work/INV8_MXILINX_ALU 1529019395 CP INV
+EN work/ADD8_MXILINX_ALU 1529019397 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ALU.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/ADD8_MXILINX_ALU/BEHAVIORAL 1529019398 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ALU.vhf" \
+      EN work/ADD8_MXILINX_ALU 1529019397 CP FMAP CP MUXCY_L CP MUXCY CP XORCY \
+      CP MUXCY_D CP XOR2
+EN work/XOR8_MXILINX_ALU 1529019399 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ALU.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/XOR8_MXILINX_ALU/BEHAVIORAL 1529019400 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ALU.vhf" \
+      EN work/XOR8_MXILINX_ALU 1529019399 CP FMAP CP XOR2 CP XOR4
+EN work/NOR8_MXILINX_ALU 1529019401 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ALU.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/NOR8_MXILINX_ALU/BEHAVIORAL 1529019402 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ALU.vhf" \
+      EN work/NOR8_MXILINX_ALU 1529019401 CP FMAP CP OR4 CP NOR2
+EN work/ALU 1529019403 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ALU.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/ALU/BEHAVIORAL 1529019404 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ALU.vhf" \
+      EN work/ALU 1529019403 CP Ram8x1 CP ADD8_MXILINX_ALU CP OBUFT8_MXILINX_ALU \
+      CP INV8_MXILINX_ALU CP OBUFT CP NOR8_MXILINX_ALU CP XOR8_MXILINX_ALU CP INV \
+      CP AND8_BUS CP XOR8_BUS CP GND CP OR8_BUS
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/AND8_BUS.vhf" 2018/06/15.00:31:39 J.36
+EN work/AND8_BUS 1529019367 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/AND8_BUS.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/AND8_BUS/BEHAVIORAL 1529019368 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/AND8_BUS.vhf" \
+      EN work/AND8_BUS 1529019367 CP AND2
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/CONTROLADOR.vhd" 2018/06/15.00:48:34 J.36
+EN work/SHELL_CONTROLADOR 1529020217 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/CONTROLADOR.vhd" \
+      PB ieee/std_logic_1164 1177545575
+AR work/SHELL_CONTROLADOR/BEHAVIOR 1529020218 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/CONTROLADOR.vhd" \
+      EN work/SHELL_CONTROLADOR 1529020217
+EN work/CONTROLADOR 1529020219 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/CONTROLADOR.vhd" \
+      PB ieee/std_logic_1164 1177545575
+AR work/CONTROLADOR/BEHAVIOR 1529020220 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/CONTROLADOR.vhd" \
+      EN work/CONTROLADOR 1529020219 CP SHELL_CONTROLADOR
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/CPU.vhf" 2018/06/15.00:31:42 J.36
+EN work/CPU 1529019423 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/CPU.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/CPU/BEHAVIORAL 1529019424 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/CPU.vhf" \
+      EN work/CPU 1529019423 CP Ram8x1 CP MAR CP FR CP ALU CP SP CP IR
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_116.vhf" 2018/06/15.00:31:47 J.36
+EN work/OBUFT8_MXILINX_DISP_116 1529019431 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_116.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/OBUFT8_MXILINX_DISP_116/BEHAVIORAL 1529019432 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_116.vhf" \
+      EN work/OBUFT8_MXILINX_DISP_116 1529019431 CP OBUFT
+EN work/DISP_116 1529019433 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_116.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/DISP_116/BEHAVIORAL 1529019434 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_116.vhf" \
+      EN work/DISP_116 1529019433 CP OBUFT8_MXILINX_DISP_116 CP INV CP GND CP VCC
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_67.vhf" 2018/06/15.00:31:48 J.36
+EN work/OBUFT8_MXILINX_DISP_67 1529019458 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_67.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/OBUFT8_MXILINX_DISP_67/BEHAVIORAL 1529019459 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_67.vhf" \
+      EN work/OBUFT8_MXILINX_DISP_67 1529019458 CP OBUFT
+EN work/FD8CE_MXILINX_DISP_67 1529019460 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_67.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/FD8CE_MXILINX_DISP_67/BEHAVIORAL 1529019461 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_67.vhf" \
+      EN work/FD8CE_MXILINX_DISP_67 1529019460 CP FDCE
+EN work/AND9_MXILINX_DISP_67 1529019462 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_67.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/AND9_MXILINX_DISP_67/BEHAVIORAL 1529019463 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_67.vhf" \
+      EN work/AND9_MXILINX_DISP_67 1529019462 CP FMAP CP AND4 CP AND3
+EN work/DISP_67 1529019464 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_67.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/DISP_67/BEHAVIORAL 1529019465 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_67.vhf" \
+      EN work/DISP_67 1529019464 CP AND9_MXILINX_DISP_67 CP FD8CE_MXILINX_DISP_67 \
+      CP GND CP AND2 CP INV CP OBUFT8_MXILINX_DISP_67
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_92.vhf" 2018/06/15.00:31:49 J.36
+EN work/OBUFT8_MXILINX_DISP_92 1529019443 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_92.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/OBUFT8_MXILINX_DISP_92/BEHAVIORAL 1529019444 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_92.vhf" \
+      EN work/OBUFT8_MXILINX_DISP_92 1529019443 CP OBUFT
+EN work/FD8CE_MXILINX_DISP_92 1529019445 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_92.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/FD8CE_MXILINX_DISP_92/BEHAVIORAL 1529019446 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_92.vhf" \
+      EN work/FD8CE_MXILINX_DISP_92 1529019445 CP FDCE
+EN work/AND9_MXILINX_DISP_92 1529019447 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_92.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/AND9_MXILINX_DISP_92/BEHAVIORAL 1529019448 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_92.vhf" \
+      EN work/AND9_MXILINX_DISP_92 1529019447 CP FMAP CP AND4 CP AND3
+EN work/DISP_92 1529019449 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_92.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/DISP_92/BEHAVIORAL 1529019450 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/DISP_92.vhf" \
+      EN work/DISP_92 1529019449 CP AND9_MXILINX_DISP_92 CP FD8CE_MXILINX_DISP_92 \
+      CP GND CP AND2 CP INV CP OBUFT8_MXILINX_DISP_92
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/FR.vhf" 2018/06/15.00:31:42 J.36
+EN work/OBUFT8_MXILINX_FR 1529019387 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/FR.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/OBUFT8_MXILINX_FR/BEHAVIORAL 1529019388 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/FR.vhf" \
+      EN work/OBUFT8_MXILINX_FR 1529019387 CP OBUFT
+EN work/FD8CE_MXILINX_FR 1529019389 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/FR.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/FD8CE_MXILINX_FR/BEHAVIORAL 1529019390 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/FR.vhf" \
+      EN work/FD8CE_MXILINX_FR 1529019389 CP FDCE
+EN work/FR 1529019391 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/FR.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/FR/BEHAVIORAL 1529019392 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/FR.vhf" EN work/FR 1529019391 \
+      CP OBUFT8_MXILINX_FR CP FD8CE_MXILINX_FR CP GND CP INV
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/Intel8086.vhf" 2018/06/15.00:35:59 J.36
+EN work/Intel8086 1529019451 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/Intel8086.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/Intel8086/BEHAVIORAL 1529019452 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/Intel8086.vhf" \
+      EN work/Intel8086 1529019451 CP CPU CP CONTROLADOR CP GND CP ram_rom256 \
+      CP DISP_116 CP DISP_67 CP DISP_92
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/IR.vhf" 2018/06/15.00:31:43 J.36
+EN work/FD8CE_MXILINX_IR 1529019417 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/IR.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/FD8CE_MXILINX_IR/BEHAVIORAL 1529019418 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/IR.vhf" \
+      EN work/FD8CE_MXILINX_IR 1529019417 CP FDCE
+EN work/OBUFT8_MXILINX_IR 1529019419 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/IR.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/OBUFT8_MXILINX_IR/BEHAVIORAL 1529019420 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/IR.vhf" \
+      EN work/OBUFT8_MXILINX_IR 1529019419 CP OBUFT
+EN work/IR 1529019421 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/IR.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/IR/BEHAVIORAL 1529019422 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/IR.vhf" EN work/IR 1529019421 \
+      CP OBUFT8_MXILINX_IR CP INV CP GND CP FD8CE_MXILINX_IR
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/MAR.vhf" 2018/06/15.00:31:43 J.36
+EN work/FD8CE_MXILINX_MAR 1529019381 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/MAR.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/FD8CE_MXILINX_MAR/BEHAVIORAL 1529019382 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/MAR.vhf" \
+      EN work/FD8CE_MXILINX_MAR 1529019381 CP FDCE
+EN work/OBUFT8_MXILINX_MAR 1529019383 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/MAR.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/OBUFT8_MXILINX_MAR/BEHAVIORAL 1529019384 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/MAR.vhf" \
+      EN work/OBUFT8_MXILINX_MAR 1529019383 CP OBUFT
+EN work/MAR 1529019385 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/MAR.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/MAR/BEHAVIORAL 1529019386 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/MAR.vhf" \
+      EN work/MAR 1529019385 CP OBUFT8_MXILINX_MAR CP INV CP GND \
+      CP FD8CE_MXILINX_MAR
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/OR8_BUS.vhf" 2018/06/15.00:31:39 J.36
+EN work/OR8_BUS 1529019371 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/OR8_BUS.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/OR8_BUS/BEHAVIORAL 1529019372 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/OR8_BUS.vhf" \
+      EN work/OR8_BUS 1529019371 CP OR2
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ram128.vhf" 2018/06/15.00:31:45 J.36
+EN work/OBUFT8_MXILINX_ram128 1529019373 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ram128.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/OBUFT8_MXILINX_ram128/BEHAVIORAL 1529019374 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ram128.vhf" \
+      EN work/OBUFT8_MXILINX_ram128 1529019373 CP OBUFT
+EN work/ram128 1529019375 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ram128.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/ram128/BEHAVIORAL 1529019376 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ram128.vhf" \
+      EN work/ram128 1529019375 CP RAM32X8S CP OBUFT8_MXILINX_ram128 CP AND4 CP INV \
+      CP OR4B1
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/Ram4x1.vhf" 2018/06/15.00:31:38 J.36
+EN work/FJKC_MXILINX_Ram4x1 1529019361 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/Ram4x1.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/FJKC_MXILINX_Ram4x1/BEHAVIORAL 1529019362 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/Ram4x1.vhf" \
+      EN work/FJKC_MXILINX_Ram4x1 1529019361 CP FDC CP AND3B2 CP AND3B1 CP OR3 \
+      CP AND2B1
+EN work/Ram4x1 1529019363 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/Ram4x1.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/Ram4x1/BEHAVIORAL 1529019364 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/Ram4x1.vhf" \
+      EN work/Ram4x1 1529019363 CP AND2 CP AND2B1 CP OR3 CP OR4 \
+      CP FJKC_MXILINX_Ram4x1 CP OBUFT CP INV CP GND
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/Ram8x1.vhf" 2018/06/15.00:31:38 J.36
+EN work/Ram8x1 1529019365 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/Ram8x1.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/Ram8x1/BEHAVIORAL 1529019366 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/Ram8x1.vhf" \
+      EN work/Ram8x1 1529019365 CP Ram4x1 CP VCC
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ram_rom256.vhf" 2018/06/15.00:31:46 J.36
+EN work/ram_rom256 1529019429 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ram_rom256.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/ram_rom256/BEHAVIORAL 1529019430 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/ram_rom256.vhf" \
+      EN work/ram_rom256 1529019429 CP ram128 CP AND2 CP AND3B2 CP rom128
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/rom128.vhf" 2018/06/15.00:31:47 J.36
+EN work/OBUFT8_MXILINX_rom128 1529019377 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/rom128.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/OBUFT8_MXILINX_rom128/BEHAVIORAL 1529019378 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/rom128.vhf" \
+      EN work/OBUFT8_MXILINX_rom128 1529019377 CP OBUFT
+EN work/rom128 1529019379 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/rom128.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/rom128/BEHAVIORAL 1529019380 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/rom128.vhf" \
+      EN work/rom128 1529019379 CP ROM128X1 CP OBUFT8_MXILINX_rom128 CP INV
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/SP.vhf" 2018/06/15.00:31:44 J.36
+EN work/OBUFT8_MXILINX_SP 1529019405 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/SP.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/OBUFT8_MXILINX_SP/BEHAVIORAL 1529019406 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/SP.vhf" \
+      EN work/OBUFT8_MXILINX_SP 1529019405 CP OBUFT
+EN work/M2_1B1_MXILINX_SP 1529019407 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/SP.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/M2_1B1_MXILINX_SP/BEHAVIORAL 1529019408 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/SP.vhf" \
+      EN work/M2_1B1_MXILINX_SP 1529019407 CP AND2B2 CP OR2 CP AND2
+EN work/M2_1_MXILINX_SP 1529019409 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/SP.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/M2_1_MXILINX_SP/BEHAVIORAL 1529019410 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/SP.vhf" \
+      EN work/M2_1_MXILINX_SP 1529019409 CP AND2B1 CP OR2 CP AND2
+EN work/FTCLEX_MXILINX_SP 1529019411 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/SP.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/FTCLEX_MXILINX_SP/BEHAVIORAL 1529019412 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/SP.vhf" \
+      EN work/FTCLEX_MXILINX_SP 1529019411 CP M2_1_MXILINX_SP CP XOR2 CP FDCE
+EN work/CB8CLED_MXILINX_SP 1529019413 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/SP.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/CB8CLED_MXILINX_SP/BEHAVIORAL 1529019414 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/SP.vhf" \
+      EN work/CB8CLED_MXILINX_SP 1529019413 CP FTCLEX_MXILINX_SP \
+      CP M2_1_MXILINX_SP CP M2_1B1_MXILINX_SP CP AND5 CP AND4 CP AND4B3 CP AND2B2 \
+      CP VCC CP AND2B1 CP AND3 CP AND3B2 CP AND3B3 CP AND4B4 CP AND2 CP AND5B4 CP OR2
+EN work/SP 1529019415 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/SP.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/SP/BEHAVIORAL 1529019416 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/SP.vhf" EN work/SP 1529019415 \
+      CP CB8CLED_MXILINX_SP CP OBUFT8_MXILINX_SP CP OR2 CP INV
+FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/XOR8_BUS.vhf" 2018/06/15.00:31:40 J.36
+EN work/XOR8_BUS 1529019369 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/XOR8_BUS.vhf" \
+      PB ieee/std_logic_1164 1177545575 PH ieee/NUMERIC_STD 1177545583 LB UNISIM \
+      PH unisim/VCOMPONENTS 1177545586
+AR work/XOR8_BUS/BEHAVIORAL 1529019370 \
+      FL "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TF2/XOR8_BUS.vhf" \
+      EN work/XOR8_BUS 1529019369 CP XOR2
