@@ -1,0 +1,3 @@
+MODULE TestBenchWaveFormKillme
+SUBMODULE killme
+INSTANCE UUT

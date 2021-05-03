@@ -1,0 +1,142 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : sch2verilog
+//  /   /         Filename : Ram8x1.vf
+// /___/   /\     Timestamp : 06/11/2018 00:24:45
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx92i\bin\nt\sch2verilog.exe -intstyle ise -family spartan3e -w "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TrabalhoFinalSL2/Ram8x1.sch" Ram8x1.vf
+//Design Name: Ram8x1
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module Ram8x1(Bus_In, 
+              Clear, 
+              CLK, 
+              Complement, 
+              Increment, 
+              Read, 
+              Write, 
+              Bus_D, 
+              Bus_Q);
+
+    input [7:0] Bus_In;
+    input Clear;
+    input CLK;
+    input Complement;
+    input Increment;
+    input Read;
+    input Write;
+   output [7:0] Bus_D;
+   output [7:0] Bus_Q;
+   
+   wire XLXN_1;
+   wire XLXN_2;
+   wire XLXN_3;
+   wire XLXN_4;
+   wire XLXN_5;
+   wire XLXN_8;
+   wire XLXN_9;
+   wire XLXN_11;
+   wire XLXN_18;
+   
+   Ram4x1 XLXI_2 (.Clear(Clear), 
+                  .CLK(CLK), 
+                  .Complement(Complement), 
+                  .Data_in(Bus_In[0]), 
+                  .Gin(XLXN_18), 
+                  .Increment(Increment), 
+                  .Read(Read), 
+                  .Write(Write), 
+                  .DOut(Bus_D[0]), 
+                  .GOut(XLXN_1), 
+                  .QOut(Bus_Q[0]));
+   Ram4x1 XLXI_3 (.Clear(Clear), 
+                  .CLK(CLK), 
+                  .Complement(Complement), 
+                  .Data_in(Bus_In[1]), 
+                  .Gin(XLXN_1), 
+                  .Increment(Increment), 
+                  .Read(Read), 
+                  .Write(Write), 
+                  .DOut(Bus_D[1]), 
+                  .GOut(XLXN_2), 
+                  .QOut(Bus_Q[1]));
+   Ram4x1 XLXI_4 (.Clear(Clear), 
+                  .CLK(CLK), 
+                  .Complement(Complement), 
+                  .Data_in(Bus_In[2]), 
+                  .Gin(XLXN_2), 
+                  .Increment(Increment), 
+                  .Read(Read), 
+                  .Write(Write), 
+                  .DOut(Bus_D[2]), 
+                  .GOut(XLXN_3), 
+                  .QOut(Bus_Q[2]));
+   Ram4x1 XLXI_5 (.Clear(Clear), 
+                  .CLK(CLK), 
+                  .Complement(Complement), 
+                  .Data_in(Bus_In[3]), 
+                  .Gin(XLXN_3), 
+                  .Increment(Increment), 
+                  .Read(Read), 
+                  .Write(Write), 
+                  .DOut(Bus_D[3]), 
+                  .GOut(XLXN_4), 
+                  .QOut(Bus_Q[3]));
+   Ram4x1 XLXI_6 (.Clear(Clear), 
+                  .CLK(CLK), 
+                  .Complement(Complement), 
+                  .Data_in(Bus_In[4]), 
+                  .Gin(XLXN_4), 
+                  .Increment(Increment), 
+                  .Read(Read), 
+                  .Write(Write), 
+                  .DOut(Bus_D[4]), 
+                  .GOut(XLXN_5), 
+                  .QOut(Bus_Q[4]));
+   Ram4x1 XLXI_7 (.Clear(Clear), 
+                  .CLK(CLK), 
+                  .Complement(Complement), 
+                  .Data_in(Bus_In[5]), 
+                  .Gin(XLXN_5), 
+                  .Increment(Increment), 
+                  .Read(Read), 
+                  .Write(Write), 
+                  .DOut(Bus_D[5]), 
+                  .GOut(XLXN_8), 
+                  .QOut(Bus_Q[5]));
+   Ram4x1 XLXI_8 (.Clear(Clear), 
+                  .CLK(CLK), 
+                  .Complement(Complement), 
+                  .Data_in(Bus_In[6]), 
+                  .Gin(XLXN_8), 
+                  .Increment(Increment), 
+                  .Read(Read), 
+                  .Write(Write), 
+                  .DOut(Bus_D[6]), 
+                  .GOut(XLXN_9), 
+                  .QOut(Bus_Q[6]));
+   Ram4x1 XLXI_9 (.Clear(Clear), 
+                  .CLK(CLK), 
+                  .Complement(Complement), 
+                  .Data_in(Bus_In[7]), 
+                  .Gin(XLXN_9), 
+                  .Increment(Increment), 
+                  .Read(Read), 
+                  .Write(Write), 
+                  .DOut(Bus_D[7]), 
+                  .GOut(XLXN_11), 
+                  .QOut(Bus_Q[7]));
+   VCC XLXI_11 (.P(XLXN_18));
+endmodule

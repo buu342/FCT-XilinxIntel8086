@@ -1,0 +1,136 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : sch2verilog
+//  /   /         Filename : Ram4x1.vf
+// /___/   /\     Timestamp : 06/11/2018 00:24:40
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx92i\bin\nt\sch2verilog.exe -intstyle ise -family spartan3e -w "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TrabalhoFinalSL2/Ram4x1.sch" Ram4x1.vf
+//Design Name: Ram4x1
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module FJKC_MXILINX_Ram4x1(C, 
+                           CLR, 
+                           J, 
+                           K, 
+                           Q);
+
+    input C;
+    input CLR;
+    input J;
+    input K;
+   output Q;
+   
+   wire AD;
+   wire A0;
+   wire A1;
+   wire A2;
+   wire Q_DUMMY;
+   
+   assign Q = Q_DUMMY;
+   FDC I_36_32 (.C(C), 
+                .CLR(CLR), 
+                .D(AD), 
+                .Q(Q_DUMMY));
+   // synthesis attribute RLOC of I_36_32 is "X0Y0"
+   defparam I_36_32.INIT = 1'b0;
+   AND3B2 I_36_37 (.I0(J), 
+                   .I1(K), 
+                   .I2(Q_DUMMY), 
+                   .O(A0));
+   AND3B1 I_36_40 (.I0(Q_DUMMY), 
+                   .I1(K), 
+                   .I2(J), 
+                   .O(A1));
+   OR3 I_36_41 (.I0(A2), 
+                .I1(A1), 
+                .I2(A0), 
+                .O(AD));
+   AND2B1 I_36_43 (.I0(K), 
+                   .I1(J), 
+                   .O(A2));
+endmodule
+`timescale 1ns / 1ps
+
+module Ram4x1(Clear, 
+              CLK, 
+              Complement, 
+              Data_in, 
+              Gin, 
+              Increment, 
+              Read, 
+              Write, 
+              DOut, 
+              GOut, 
+              QOut);
+
+    input Clear;
+    input CLK;
+    input Complement;
+    input Data_in;
+    input Gin;
+    input Increment;
+    input Read;
+    input Write;
+   output DOut;
+   output GOut;
+   output QOut;
+   
+   wire XLXN_10;
+   wire XLXN_18;
+   wire XLXN_19;
+   wire XLXN_20;
+   wire XLXN_21;
+   wire XLXN_23;
+   wire XLXN_27;
+   wire QOut_DUMMY;
+   
+   assign QOut = QOut_DUMMY;
+   AND2 XLXI_1 (.I0(Gin), 
+                .I1(QOut_DUMMY), 
+                .O(GOut));
+   AND2 XLXI_2 (.I0(Increment), 
+                .I1(Gin), 
+                .O(XLXN_10));
+   AND2 XLXI_3 (.I0(Data_in), 
+                .I1(Write), 
+                .O(XLXN_18));
+   AND2B1 XLXI_4 (.I0(Data_in), 
+                  .I1(Write), 
+                  .O(XLXN_19));
+   OR3 XLXI_5 (.I0(Complement), 
+               .I1(XLXN_18), 
+               .I2(XLXN_10), 
+               .O(XLXN_20));
+   OR4 XLXI_6 (.I0(Clear), 
+               .I1(XLXN_10), 
+               .I2(XLXN_19), 
+               .I3(Complement), 
+               .O(XLXN_21));
+   FJKC_MXILINX_Ram4x1 XLXI_11 (.C(CLK), 
+                                .CLR(XLXN_23), 
+                                .J(XLXN_20), 
+                                .K(XLXN_21), 
+                                .Q(QOut_DUMMY));
+   // synthesis attribute HU_SET of XLXI_11 is "XLXI_11_0"
+   OBUFT XLXI_13 (.I(QOut_DUMMY), 
+                  .T(XLXN_27), 
+                  .O(DOut));
+   // synthesis attribute IOSTANDARD of XLXI_13 is "DEFAULT"
+   // synthesis attribute SLEW of XLXI_13 is "SLOW"
+   // synthesis attribute DRIVE of XLXI_13 is "12"
+   INV XLXI_14 (.I(Read), 
+                .O(XLXN_27));
+   GND XLXI_16 (.G(XLXN_23));
+endmodule

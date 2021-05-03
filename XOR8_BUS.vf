@@ -1,0 +1,56 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : sch2verilog
+//  /   /         Filename : XOR8_BUS.vf
+// /___/   /\     Timestamp : 06/11/2018 00:24:45
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx92i\bin\nt\sch2verilog.exe -intstyle ise -family spartan3e -w "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TrabalhoFinalSL2/XOR8_BUS.sch" XOR8_BUS.vf
+//Design Name: XOR8_BUS
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module XOR8_BUS(Bus_In, 
+                TMP, 
+                Bus_Out);
+
+    input [7:0] Bus_In;
+    input [7:0] TMP;
+   output [7:0] Bus_Out;
+   
+   
+   XOR2 XLXI_14 (.I0(TMP[7]), 
+                 .I1(Bus_In[7]), 
+                 .O(Bus_Out[7]));
+   XOR2 XLXI_15 (.I0(TMP[6]), 
+                 .I1(Bus_In[6]), 
+                 .O(Bus_Out[6]));
+   XOR2 XLXI_16 (.I0(TMP[5]), 
+                 .I1(Bus_In[5]), 
+                 .O(Bus_Out[5]));
+   XOR2 XLXI_19 (.I0(TMP[4]), 
+                 .I1(Bus_In[4]), 
+                 .O(Bus_Out[4]));
+   XOR2 XLXI_20 (.I0(TMP[3]), 
+                 .I1(Bus_In[3]), 
+                 .O(Bus_Out[3]));
+   XOR2 XLXI_21 (.I0(TMP[2]), 
+                 .I1(Bus_In[2]), 
+                 .O(Bus_Out[2]));
+   XOR2 XLXI_22 (.I0(TMP[1]), 
+                 .I1(Bus_In[1]), 
+                 .O(Bus_Out[1]));
+   XOR2 XLXI_23 (.I0(TMP[0]), 
+                 .I1(Bus_In[0]), 
+                 .O(Bus_Out[0]));
+endmodule

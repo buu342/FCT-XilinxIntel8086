@@ -1,0 +1,3 @@
+MODULE TestBenchWaveFormttt2
+SUBMODULE ttt2
+INSTANCE UUT

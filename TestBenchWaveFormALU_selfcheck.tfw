@@ -1,0 +1,135 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : ISE
+//  /   /         Filename : TestBenchWaveFormALU_selfcheck.tfw
+// /___/   /\     Timestamp : Fri Jun 08 17:42:06 2018
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: TestBenchWaveFormALU_selfcheck
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module TestBenchWaveFormALU_selfcheck;
+    reg CLK = 1'b0;
+    reg CTMP = 1'b0;
+    reg ITMP = 1'b0;
+    reg LDTMP = 1'b0;
+    reg RAND = 1'b0;
+    reg RDADD = 1'b0;
+    reg RNOT = 1'b0;
+    reg Rsignals = 1'b0;
+    reg RTMP = 1'b0;
+    reg RXOR = 1'b0;
+    reg WTMP = 1'b0;
+    reg ZTMP = 1'b0;
+    wire [7:0] Bus_Q;
+    wire [7:0] Flags;
+    reg [7:0] Data_Bus$inout$reg = 8'bZZZZZZZZ;
+    wire [7:0] Data_Bus = Data_Bus$inout$reg;
+
+    parameter PERIOD = 200;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 100;
+
+    initial    // Clock process for CLK
+    begin
+        #OFFSET;
+        forever
+        begin
+            CLK = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) CLK = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    Chip UUT (
+        .CLK(CLK),
+        .CTMP(CTMP),
+        .ITMP(ITMP),
+        .LDTMP(LDTMP),
+        .RAND(RAND),
+        .RDADD(RDADD),
+        .RNOT(RNOT),
+        .Rsignals(Rsignals),
+        .RTMP(RTMP),
+        .RXOR(RXOR),
+        .WTMP(WTMP),
+        .ZTMP(ZTMP),
+        .Bus_Q(Bus_Q),
+        .Flags(Flags),
+        .Data_Bus(Data_Bus));
+
+    integer TX_ERROR = 0;
+    
+    initial begin  // Open the results file...
+        #10200 // Final time:  10200 ns
+        if (TX_ERROR == 0) begin
+            $display("No errors or warnings.");
+        end else begin
+            $display("%d errors found in simulation.", TX_ERROR);
+        end
+        $stop;
+    end
+
+    initial begin
+        // -------------  Current Time:  185ns
+        #185;
+        LDTMP = 1'b1;
+        WTMP = 1'b1;
+        Data_Bus$inout$reg = 8'b00001010;
+        // -------------------------------------
+        // -------------  Current Time:  215ns
+        #30;
+        CHECK_Bus_Q(8'bXXXXXXXX);
+        // -------------------------------------
+        // -------------  Current Time:  385ns
+        #170;
+        LDTMP = 1'b0;
+        RDADD = 1'b1;
+        Data_Bus$inout$reg = 8'b00000101;
+        // -------------------------------------
+        // -------------  Current Time:  585ns
+        #200;
+        RDADD = 1'b0;
+        RTMP = 1'b1;
+        WTMP = 1'b0;
+        Data_Bus$inout$reg = 8'bZZZZZZZZ;
+        // -------------------------------------
+        // -------------  Current Time:  785ns
+        #200;
+        RTMP = 1'b0;
+        // -------------------------------------
+    end
+
+    task CHECK_Bus_Q;
+        input [7:0] NEXT_Bus_Q;
+
+        #0 begin
+            if (NEXT_Bus_Q !== Bus_Q) begin
+                $display("Error at time=%dns Bus_Q=%b, expected=%b", $time, Bus_Q, NEXT_Bus_Q);
+                TX_ERROR = TX_ERROR + 1;
+            end
+        end
+    endtask
+    task CHECK_Flags;
+        input [7:0] NEXT_Flags;
+
+        #0 begin
+            if (NEXT_Flags !== Flags) begin
+                $display("Error at time=%dns Flags=%b, expected=%b", $time, Flags, NEXT_Flags);
+                TX_ERROR = TX_ERROR + 1;
+            end
+        end
+    endtask
+
+endmodule
+

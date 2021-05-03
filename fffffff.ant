@@ -1,0 +1,45 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : ISE
+//  /   /         Filename : fffffff.ant
+// /___/   /\     Timestamp : Sun Jun 10 21:10:39 2018
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: fffffff
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module fffffff;
+    reg [7:0] Data_Bus$inout$reg = 8'bZZZZZZZZ;
+    wire [7:0] Data_Bus = Data_Bus$inout$reg;
+
+
+    killme UUT (
+        .Data_Bus(Data_Bus));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\SL2aluno\\Desktop\\Nosso\\TrabalhoFinalSL2\\fffffff.ano");
+        #10000 // Final time:  10000 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+    end
+
+endmodule
+

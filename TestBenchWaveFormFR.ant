@@ -1,0 +1,138 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : ISE
+//  /   /         Filename : TestBenchWaveFormFR.ant
+// /___/   /\     Timestamp : Sun Jun 10 20:32:40 2018
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: TestBenchWaveFormFR
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module TestBenchWaveFormFR;
+    reg CLK = 1'b0;
+    reg [7:0] Flags_In = 8'b00000000;
+    reg RB = 1'b0;
+    reg RF = 1'b0;
+    reg WF = 1'b0;
+    wire [7:0] Bus_Q;
+    wire [7:0] IR_Out;
+    reg [7:0] ALU$inout$reg = 8'b00000000;
+    wire [7:0] ALU = ALU$inout$reg;
+
+    parameter PERIOD = 200;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 100;
+
+    initial    // Clock process for CLK
+    begin
+        #OFFSET;
+        forever
+        begin
+            CLK = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) CLK = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    FR UUT (
+        .CLK(CLK),
+        .Flags_In(Flags_In),
+        .RB(RB),
+        .RF(RF),
+        .WF(WF),
+        .Bus_Q(Bus_Q),
+        .IR_Out(IR_Out),
+        .ALU(ALU));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock CLK
+        #0;
+        ANNOTATE_Bus_Q;
+        ANNOTATE_IR_Out;
+        #OFFSET;
+        forever begin
+            #115;
+            ANNOTATE_Bus_Q;
+            ANNOTATE_IR_Out;
+            #85;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\SL2aluno\\Desktop\\Nosso\\TrabalhoFinalSL2\\TestBenchWaveFormFR.ano");
+        #10200 // Final time:  10200 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  185ns
+        #185;
+        RB = 1'b1;
+        WF = 1'b1;
+        Flags_In = 8'b00101100;
+        // -------------------------------------
+        // -------------  Current Time:  385ns
+        #200;
+        RB = 1'b0;
+        WF = 1'b0;
+        Flags_In = 8'bZZZZZZZZ;
+        // -------------------------------------
+        // -------------  Current Time:  585ns
+        #200;
+        RF = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  785ns
+        #200;
+        RF = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  985ns
+        #200;
+        WF = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  1185ns
+        #200;
+        WF = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  1385ns
+        #200;
+        RF = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  1585ns
+        #200;
+        RF = 1'b0;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_Bus_Q;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,Bus_Q,%b]", $time, Bus_Q);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_IR_Out;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,IR_Out,%b]", $time, IR_Out);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

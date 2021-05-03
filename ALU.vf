@@ -1,0 +1,583 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : sch2verilog
+//  /   /         Filename : ALU.vf
+// /___/   /\     Timestamp : 06/11/2018 00:24:43
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx92i\bin\nt\sch2verilog.exe -intstyle ise -family spartan3e -w "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TrabalhoFinalSL2/ALU.sch" ALU.vf
+//Design Name: ALU
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module OBUFT8_MXILINX_ALU(I, 
+                          T, 
+                          O);
+
+    input [7:0] I;
+    input T;
+   output [7:0] O;
+   
+   
+   OBUFT I_36_30 (.I(I[0]), 
+                  .T(T), 
+                  .O(O[0]));
+   // synthesis attribute IOSTANDARD of I_36_30 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_30 is "SLOW"
+   // synthesis attribute DRIVE of I_36_30 is "12"
+   OBUFT I_36_31 (.I(I[1]), 
+                  .T(T), 
+                  .O(O[1]));
+   // synthesis attribute IOSTANDARD of I_36_31 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_31 is "SLOW"
+   // synthesis attribute DRIVE of I_36_31 is "12"
+   OBUFT I_36_32 (.I(I[2]), 
+                  .T(T), 
+                  .O(O[2]));
+   // synthesis attribute IOSTANDARD of I_36_32 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_32 is "SLOW"
+   // synthesis attribute DRIVE of I_36_32 is "12"
+   OBUFT I_36_33 (.I(I[3]), 
+                  .T(T), 
+                  .O(O[3]));
+   // synthesis attribute IOSTANDARD of I_36_33 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_33 is "SLOW"
+   // synthesis attribute DRIVE of I_36_33 is "12"
+   OBUFT I_36_34 (.I(I[7]), 
+                  .T(T), 
+                  .O(O[7]));
+   // synthesis attribute IOSTANDARD of I_36_34 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_34 is "SLOW"
+   // synthesis attribute DRIVE of I_36_34 is "12"
+   OBUFT I_36_35 (.I(I[6]), 
+                  .T(T), 
+                  .O(O[6]));
+   // synthesis attribute IOSTANDARD of I_36_35 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_35 is "SLOW"
+   // synthesis attribute DRIVE of I_36_35 is "12"
+   OBUFT I_36_36 (.I(I[5]), 
+                  .T(T), 
+                  .O(O[5]));
+   // synthesis attribute IOSTANDARD of I_36_36 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_36 is "SLOW"
+   // synthesis attribute DRIVE of I_36_36 is "12"
+   OBUFT I_36_37 (.I(I[4]), 
+                  .T(T), 
+                  .O(O[4]));
+   // synthesis attribute IOSTANDARD of I_36_37 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_37 is "SLOW"
+   // synthesis attribute DRIVE of I_36_37 is "12"
+endmodule
+`timescale 1ns / 1ps
+
+module INV8_MXILINX_ALU(I, 
+                        O);
+
+    input [7:0] I;
+   output [7:0] O;
+   
+   
+   INV I_36_30 (.I(I[4]), 
+                .O(O[4]));
+   INV I_36_31 (.I(I[5]), 
+                .O(O[5]));
+   INV I_36_32 (.I(I[6]), 
+                .O(O[6]));
+   INV I_36_33 (.I(I[7]), 
+                .O(O[7]));
+   INV I_36_34 (.I(I[3]), 
+                .O(O[3]));
+   INV I_36_35 (.I(I[2]), 
+                .O(O[2]));
+   INV I_36_36 (.I(I[1]), 
+                .O(O[1]));
+   INV I_36_37 (.I(I[0]), 
+                .O(O[0]));
+endmodule
+`timescale 1ns / 1ps
+
+module ADD8_MXILINX_ALU(A, 
+                        B, 
+                        CI, 
+                        CO, 
+                        OFL, 
+                        S);
+
+    input [7:0] A;
+    input [7:0] B;
+    input CI;
+   output CO;
+   output OFL;
+   output [7:0] S;
+   
+   wire C0;
+   wire C1;
+   wire C2;
+   wire C3;
+   wire C4;
+   wire C5;
+   wire C6;
+   wire C6O;
+   wire dummy;
+   wire I0;
+   wire I1;
+   wire I2;
+   wire I3;
+   wire I4;
+   wire I5;
+   wire I6;
+   wire I7;
+   wire CO_DUMMY;
+   
+   assign CO = CO_DUMMY;
+   FMAP I_36_16 (.I1(A[0]), 
+                 .I2(B[0]), 
+                 .I3(dummy), 
+                 .I4(dummy), 
+                 .O(I0));
+   // synthesis attribute RLOC of I_36_16 is "X0Y0"
+   FMAP I_36_17 (.I1(A[1]), 
+                 .I2(B[1]), 
+                 .I3(dummy), 
+                 .I4(dummy), 
+                 .O(I1));
+   // synthesis attribute RLOC of I_36_17 is "X0Y0"
+   FMAP I_36_18 (.I1(A[2]), 
+                 .I2(B[2]), 
+                 .I3(dummy), 
+                 .I4(dummy), 
+                 .O(I2));
+   // synthesis attribute RLOC of I_36_18 is "X0Y1"
+   FMAP I_36_19 (.I1(A[3]), 
+                 .I2(B[3]), 
+                 .I3(dummy), 
+                 .I4(dummy), 
+                 .O(I3));
+   // synthesis attribute RLOC of I_36_19 is "X0Y1"
+   FMAP I_36_20 (.I1(A[4]), 
+                 .I2(B[4]), 
+                 .I3(dummy), 
+                 .I4(dummy), 
+                 .O(I4));
+   // synthesis attribute RLOC of I_36_20 is "X0Y2"
+   FMAP I_36_21 (.I1(A[5]), 
+                 .I2(B[5]), 
+                 .I3(dummy), 
+                 .I4(dummy), 
+                 .O(I5));
+   // synthesis attribute RLOC of I_36_21 is "X0Y2"
+   FMAP I_36_22 (.I1(A[6]), 
+                 .I2(B[6]), 
+                 .I3(dummy), 
+                 .I4(dummy), 
+                 .O(I6));
+   // synthesis attribute RLOC of I_36_22 is "X0Y3"
+   FMAP I_36_23 (.I1(A[7]), 
+                 .I2(B[7]), 
+                 .I3(dummy), 
+                 .I4(dummy), 
+                 .O(I7));
+   // synthesis attribute RLOC of I_36_23 is "X0Y3"
+   MUXCY_L I_36_55 (.CI(C0), 
+                    .DI(A[1]), 
+                    .S(I1), 
+                    .LO(C1));
+   // synthesis attribute RLOC of I_36_55 is "X0Y0"
+   MUXCY_L I_36_58 (.CI(C2), 
+                    .DI(A[3]), 
+                    .S(I3), 
+                    .LO(C3));
+   // synthesis attribute RLOC of I_36_58 is "X0Y1"
+   MUXCY_L I_36_62 (.CI(C1), 
+                    .DI(A[2]), 
+                    .S(I2), 
+                    .LO(C2));
+   // synthesis attribute RLOC of I_36_62 is "X0Y1"
+   MUXCY_L I_36_63 (.CI(C3), 
+                    .DI(A[4]), 
+                    .S(I4), 
+                    .LO(C4));
+   // synthesis attribute RLOC of I_36_63 is "X0Y2"
+   MUXCY I_36_64 (.CI(C6), 
+                  .DI(A[7]), 
+                  .S(I7), 
+                  .O(CO_DUMMY));
+   // synthesis attribute RLOC of I_36_64 is "X0Y3"
+   XORCY I_36_73 (.CI(CI), 
+                  .LI(I0), 
+                  .O(S[0]));
+   XORCY I_36_74 (.CI(C0), 
+                  .LI(I1), 
+                  .O(S[1]));
+   XORCY I_36_75 (.CI(C2), 
+                  .LI(I3), 
+                  .O(S[3]));
+   XORCY I_36_76 (.CI(C1), 
+                  .LI(I2), 
+                  .O(S[2]));
+   XORCY I_36_77 (.CI(C4), 
+                  .LI(I5), 
+                  .O(S[5]));
+   XORCY I_36_78 (.CI(C3), 
+                  .LI(I4), 
+                  .O(S[4]));
+   XORCY I_36_80 (.CI(C6), 
+                  .LI(I7), 
+                  .O(S[7]));
+   XORCY I_36_81 (.CI(C5), 
+                  .LI(I6), 
+                  .O(S[6]));
+   MUXCY_D I_36_107 (.CI(C5), 
+                     .DI(A[6]), 
+                     .S(I6), 
+                     .LO(C6), 
+                     .O(C6O));
+   // synthesis attribute RLOC of I_36_107 is "X0Y3"
+   MUXCY_L I_36_110 (.CI(C4), 
+                     .DI(A[5]), 
+                     .S(I5), 
+                     .LO(C5));
+   // synthesis attribute RLOC of I_36_110 is "X0Y2"
+   MUXCY_L I_36_111 (.CI(CI), 
+                     .DI(A[0]), 
+                     .S(I0), 
+                     .LO(C0));
+   // synthesis attribute RLOC of I_36_111 is "X0Y0"
+   XOR2 I_36_221 (.I0(A[7]), 
+                  .I1(B[7]), 
+                  .O(I7));
+   XOR2 I_36_222 (.I0(A[6]), 
+                  .I1(B[6]), 
+                  .O(I6));
+   XOR2 I_36_223 (.I0(A[5]), 
+                  .I1(B[5]), 
+                  .O(I5));
+   XOR2 I_36_224 (.I0(A[4]), 
+                  .I1(B[4]), 
+                  .O(I4));
+   XOR2 I_36_225 (.I0(A[3]), 
+                  .I1(B[3]), 
+                  .O(I3));
+   XOR2 I_36_228 (.I0(A[0]), 
+                  .I1(B[0]), 
+                  .O(I0));
+   XOR2 I_36_229 (.I0(A[1]), 
+                  .I1(B[1]), 
+                  .O(I1));
+   XOR2 I_36_230 (.I0(A[2]), 
+                  .I1(B[2]), 
+                  .O(I2));
+   XOR2 I_36_239 (.I0(C6O), 
+                  .I1(CO_DUMMY), 
+                  .O(OFL));
+endmodule
+`timescale 1ns / 1ps
+
+module XOR8_MXILINX_ALU(I0, 
+                        I1, 
+                        I2, 
+                        I3, 
+                        I4, 
+                        I5, 
+                        I6, 
+                        I7, 
+                        O);
+
+    input I0;
+    input I1;
+    input I2;
+    input I3;
+    input I4;
+    input I5;
+    input I6;
+    input I7;
+   output O;
+   
+   wire dummy;
+   wire S0;
+   wire S1;
+   wire O_DUMMY;
+   
+   assign O = O_DUMMY;
+   FMAP I_36_90 (.I1(S0), 
+                 .I2(S1), 
+                 .I3(dummy), 
+                 .I4(dummy), 
+                 .O(O_DUMMY));
+   // synthesis attribute RLOC of I_36_90 is "X0Y1"
+   XOR2 I_36_93 (.I0(S0), 
+                 .I1(S1), 
+                 .O(O_DUMMY));
+   XOR4 I_36_94 (.I0(I4), 
+                 .I1(I5), 
+                 .I2(I6), 
+                 .I3(I7), 
+                 .O(S1));
+   XOR4 I_36_111 (.I0(I0), 
+                  .I1(I1), 
+                  .I2(I2), 
+                  .I3(I3), 
+                  .O(S0));
+   FMAP I_36_115 (.I1(I0), 
+                  .I2(I1), 
+                  .I3(I2), 
+                  .I4(I3), 
+                  .O(S0));
+   // synthesis attribute RLOC of I_36_115 is "X0Y0"
+   FMAP I_36_116 (.I1(I4), 
+                  .I2(I5), 
+                  .I3(I6), 
+                  .I4(I7), 
+                  .O(S1));
+   // synthesis attribute RLOC of I_36_116 is "X0Y0"
+endmodule
+`timescale 1ns / 1ps
+
+module NOR8_MXILINX_ALU(I0, 
+                        I1, 
+                        I2, 
+                        I3, 
+                        I4, 
+                        I5, 
+                        I6, 
+                        I7, 
+                        O);
+
+    input I0;
+    input I1;
+    input I2;
+    input I3;
+    input I4;
+    input I5;
+    input I6;
+    input I7;
+   output O;
+   
+   wire dummy;
+   wire S0;
+   wire S1;
+   wire O_DUMMY;
+   
+   assign O = O_DUMMY;
+   FMAP I_36_29 (.I1(I0), 
+                 .I2(I1), 
+                 .I3(I2), 
+                 .I4(I3), 
+                 .O(S0));
+   // synthesis attribute RLOC of I_36_29 is "X0Y0"
+   OR4 I_36_110 (.I0(I0), 
+                 .I1(I1), 
+                 .I2(I2), 
+                 .I3(I3), 
+                 .O(S0));
+   OR4 I_36_127 (.I0(I4), 
+                 .I1(I5), 
+                 .I2(I6), 
+                 .I3(I7), 
+                 .O(S1));
+   FMAP I_36_138 (.I1(I4), 
+                  .I2(I5), 
+                  .I3(I6), 
+                  .I4(I7), 
+                  .O(S1));
+   // synthesis attribute RLOC of I_36_138 is "X0Y0"
+   NOR2 I_36_140 (.I0(S0), 
+                  .I1(S1), 
+                  .O(O_DUMMY));
+   FMAP I_36_144 (.I1(S0), 
+                  .I2(S1), 
+                  .I3(dummy), 
+                  .I4(dummy), 
+                  .O(O_DUMMY));
+   // synthesis attribute RLOC of I_36_144 is "X0Y1"
+endmodule
+`timescale 1ns / 1ps
+
+module ALU(ALU_IN, 
+           CLK, 
+           C_TMP, 
+           I_TMP, 
+           LDTMP, 
+           RDADD, 
+           RDAND, 
+           RDNOT, 
+           RDOR, 
+           RDXOR, 
+           Rsignals, 
+           R_TMP, 
+           W_TMP, 
+           Z_TMP, 
+           ALU_OUT, 
+           Bus_Q, 
+           Flags);
+
+    input [7:0] ALU_IN;
+    input CLK;
+    input C_TMP;
+    input I_TMP;
+    input LDTMP;
+    input RDADD;
+    input RDAND;
+    input RDNOT;
+    input RDOR;
+    input RDXOR;
+    input Rsignals;
+    input R_TMP;
+    input W_TMP;
+    input Z_TMP;
+   output [7:0] ALU_OUT;
+   output [7:0] Bus_Q;
+   output [7:0] Flags;
+   
+   wire [7:0] Bus_ALU;
+   wire XLNX_102;
+   wire XLNX_105;
+   wire [7:0] XLXN_6;
+   wire XLXN_9;
+   wire [7:0] XLXN_21;
+   wire XLXN_29;
+   wire XLXN_55;
+   wire XLXN_91;
+   wire XLXN_100;
+   wire XLXN_101;
+   wire XLXN_103;
+   wire [7:0] XLXN_108;
+   wire XLXN_114;
+   wire [7:0] XLXN_122;
+   wire XLXN_124;
+   wire [7:0] XLXN_149;
+   wire XLXN_151;
+   wire [7:0] Bus_Q_DUMMY;
+   
+   assign Bus_Q[7:0] = Bus_Q_DUMMY[7:0];
+   Ram8x1 tmp (.Bus_In(Bus_ALU[7:0]), 
+               .Clear(Z_TMP), 
+               .CLK(CLK), 
+               .Complement(C_TMP), 
+               .Increment(I_TMP), 
+               .Read(R_TMP), 
+               .Write(W_TMP), 
+               .Bus_D(ALU_OUT[7:0]), 
+               .Bus_Q(Bus_Q_DUMMY[7:0]));
+   ADD8_MXILINX_ALU XLXI_4 (.A(Bus_Q_DUMMY[7:0]), 
+                            .B(ALU_IN[7:0]), 
+                            .CI(XLXN_9), 
+                            .CO(XLXN_29), 
+                            .OFL(XLXN_91), 
+                            .S(XLXN_6[7:0]));
+   // synthesis attribute HU_SET of XLXI_4 is "XLXI_4_3"
+   OBUFT8_MXILINX_ALU XLXI_5 (.I(XLXN_6[7:0]), 
+                              .T(XLXN_101), 
+                              .O(Bus_ALU[7:0]));
+   // synthesis attribute HU_SET of XLXI_5 is "XLXI_5_4"
+   OBUFT8_MXILINX_ALU XLXI_7 (.I(ALU_IN[7:0]), 
+                              .T(XLNX_102), 
+                              .O(Bus_ALU[7:0]));
+   // synthesis attribute HU_SET of XLXI_7 is "XLXI_7_0"
+   INV8_MXILINX_ALU XLXI_11 (.I(ALU_IN[7:0]), 
+                             .O(XLXN_21[7:0]));
+   // synthesis attribute HU_SET of XLXI_11 is "XLXI_11_8"
+   OBUFT8_MXILINX_ALU XLXI_12 (.I(XLXN_21[7:0]), 
+                               .T(XLXN_103), 
+                               .O(Bus_ALU[7:0]));
+   // synthesis attribute HU_SET of XLXI_12 is "XLXI_12_9"
+   OBUFT XLXI_15 (.I(XLXN_91), 
+                  .T(XLNX_105), 
+                  .O(Flags[0]));
+   // synthesis attribute IOSTANDARD of XLXI_15 is "DEFAULT"
+   // synthesis attribute SLEW of XLXI_15 is "SLOW"
+   // synthesis attribute DRIVE of XLXI_15 is "12"
+   OBUFT XLXI_16 (.I(XLXN_29), 
+                  .T(XLNX_105), 
+                  .O(Flags[1]));
+   // synthesis attribute IOSTANDARD of XLXI_16 is "DEFAULT"
+   // synthesis attribute SLEW of XLXI_16 is "SLOW"
+   // synthesis attribute DRIVE of XLXI_16 is "12"
+   OBUFT XLXI_18 (.I(XLXN_55), 
+                  .T(XLNX_105), 
+                  .O(Flags[3]));
+   // synthesis attribute IOSTANDARD of XLXI_18 is "DEFAULT"
+   // synthesis attribute SLEW of XLXI_18 is "SLOW"
+   // synthesis attribute DRIVE of XLXI_18 is "12"
+   OBUFT XLXI_20 (.I(XLXN_100), 
+                  .T(XLNX_105), 
+                  .O(Flags[5]));
+   // synthesis attribute IOSTANDARD of XLXI_20 is "DEFAULT"
+   // synthesis attribute SLEW of XLXI_20 is "SLOW"
+   // synthesis attribute DRIVE of XLXI_20 is "12"
+   OBUFT XLXI_22 (.I(Bus_ALU[0]), 
+                  .T(XLNX_105), 
+                  .O(Flags[7]));
+   // synthesis attribute IOSTANDARD of XLXI_22 is "DEFAULT"
+   // synthesis attribute SLEW of XLXI_22 is "SLOW"
+   // synthesis attribute DRIVE of XLXI_22 is "12"
+   NOR8_MXILINX_ALU XLXI_23 (.I0(Bus_ALU[7]), 
+                             .I1(Bus_ALU[6]), 
+                             .I2(Bus_ALU[5]), 
+                             .I3(Bus_ALU[4]), 
+                             .I4(Bus_ALU[3]), 
+                             .I5(Bus_ALU[2]), 
+                             .I6(Bus_ALU[1]), 
+                             .I7(Bus_ALU[0]), 
+                             .O(XLXN_55));
+   // synthesis attribute HU_SET of XLXI_23 is "XLXI_23_1"
+   XOR8_MXILINX_ALU XLXI_48 (.I0(Bus_ALU[7]), 
+                             .I1(Bus_ALU[6]), 
+                             .I2(Bus_ALU[5]), 
+                             .I3(Bus_ALU[4]), 
+                             .I4(Bus_ALU[3]), 
+                             .I5(Bus_ALU[2]), 
+                             .I6(Bus_ALU[1]), 
+                             .I7(Bus_ALU[0]), 
+                             .O(XLXN_100));
+   // synthesis attribute HU_SET of XLXI_48 is "XLXI_48_2"
+   INV XLXI_49 (.I(RDADD), 
+                .O(XLXN_101));
+   INV XLXI_50 (.I(LDTMP), 
+                .O(XLNX_102));
+   INV XLXI_51 (.I(RDNOT), 
+                .O(XLXN_103));
+   INV XLXI_52 (.I(Rsignals), 
+                .O(XLNX_105));
+   OBUFT8_MXILINX_ALU XLXI_54 (.I(XLXN_108[7:0]), 
+                               .T(XLXN_114), 
+                               .O(Bus_ALU[7:0]));
+   // synthesis attribute HU_SET of XLXI_54 is "XLXI_54_7"
+   INV XLXI_61 (.I(RDAND), 
+                .O(XLXN_114));
+   OBUFT8_MXILINX_ALU XLXI_62 (.I(XLXN_122[7:0]), 
+                               .T(XLXN_124), 
+                               .O(Bus_ALU[7:0]));
+   // synthesis attribute HU_SET of XLXI_62 is "XLXI_62_6"
+   INV XLXI_64 (.I(RDXOR), 
+                .O(XLXN_124));
+   AND8_BUS XLXI_66 (.Bus_In(ALU_IN[7:0]), 
+                     .TMP(Bus_Q_DUMMY[7:0]), 
+                     .Bus_Out(XLXN_108[7:0]));
+   XOR8_BUS XLXI_67 (.Bus_In(ALU_IN[7:0]), 
+                     .TMP(Bus_Q_DUMMY[7:0]), 
+                     .Bus_Out(XLXN_122[7:0]));
+   GND XLXI_69 (.G(XLXN_9));
+   GND XLXI_71 (.G(Flags[2]));
+   GND XLXI_72 (.G(Flags[4]));
+   GND XLXI_73 (.G(Flags[6]));
+   OBUFT8_MXILINX_ALU XLXI_86 (.I(XLXN_149[7:0]), 
+                               .T(XLXN_151), 
+                               .O(Bus_ALU[7:0]));
+   // synthesis attribute HU_SET of XLXI_86 is "XLXI_86_5"
+   INV XLXI_87 (.I(RDOR), 
+                .O(XLXN_151));
+   OR8_BUS XLXI_88 (.Bus_In(ALU_IN[7:0]), 
+                    .TMP(Bus_Q_DUMMY[7:0]), 
+                    .Bus_Out(XLXN_149[7:0]));
+endmodule

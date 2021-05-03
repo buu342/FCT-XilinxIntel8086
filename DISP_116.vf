@@ -1,0 +1,106 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : sch2verilog
+//  /   /         Filename : DISP_116.vf
+// /___/   /\     Timestamp : 06/11/2018 00:24:51
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx92i\bin\nt\sch2verilog.exe -intstyle ise -family spartan3e -w "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TrabalhoFinalSL2/DISP_116.sch" DISP_116.vf
+//Design Name: DISP_116
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module OBUFT8_MXILINX_DISP_116(I, 
+                               T, 
+                               O);
+
+    input [7:0] I;
+    input T;
+   output [7:0] O;
+   
+   
+   OBUFT I_36_30 (.I(I[0]), 
+                  .T(T), 
+                  .O(O[0]));
+   // synthesis attribute IOSTANDARD of I_36_30 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_30 is "SLOW"
+   // synthesis attribute DRIVE of I_36_30 is "12"
+   OBUFT I_36_31 (.I(I[1]), 
+                  .T(T), 
+                  .O(O[1]));
+   // synthesis attribute IOSTANDARD of I_36_31 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_31 is "SLOW"
+   // synthesis attribute DRIVE of I_36_31 is "12"
+   OBUFT I_36_32 (.I(I[2]), 
+                  .T(T), 
+                  .O(O[2]));
+   // synthesis attribute IOSTANDARD of I_36_32 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_32 is "SLOW"
+   // synthesis attribute DRIVE of I_36_32 is "12"
+   OBUFT I_36_33 (.I(I[3]), 
+                  .T(T), 
+                  .O(O[3]));
+   // synthesis attribute IOSTANDARD of I_36_33 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_33 is "SLOW"
+   // synthesis attribute DRIVE of I_36_33 is "12"
+   OBUFT I_36_34 (.I(I[7]), 
+                  .T(T), 
+                  .O(O[7]));
+   // synthesis attribute IOSTANDARD of I_36_34 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_34 is "SLOW"
+   // synthesis attribute DRIVE of I_36_34 is "12"
+   OBUFT I_36_35 (.I(I[6]), 
+                  .T(T), 
+                  .O(O[6]));
+   // synthesis attribute IOSTANDARD of I_36_35 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_35 is "SLOW"
+   // synthesis attribute DRIVE of I_36_35 is "12"
+   OBUFT I_36_36 (.I(I[5]), 
+                  .T(T), 
+                  .O(O[5]));
+   // synthesis attribute IOSTANDARD of I_36_36 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_36 is "SLOW"
+   // synthesis attribute DRIVE of I_36_36 is "12"
+   OBUFT I_36_37 (.I(I[4]), 
+                  .T(T), 
+                  .O(O[4]));
+   // synthesis attribute IOSTANDARD of I_36_37 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_37 is "SLOW"
+   // synthesis attribute DRIVE of I_36_37 is "12"
+endmodule
+`timescale 1ns / 1ps
+
+module DISP_116(INTA, 
+                Disp_Out);
+
+    input INTA;
+   output [7:0] Disp_Out;
+   
+   wire [7:0] Dispositivo;
+   wire XLXN_2;
+   
+   OBUFT8_MXILINX_DISP_116 XLXI_1 (.I(Dispositivo[7:0]), 
+                                   .T(XLXN_2), 
+                                   .O(Disp_Out[7:0]));
+   // synthesis attribute HU_SET of XLXI_1 is "XLXI_1_0"
+   INV XLXI_2 (.I(INTA), 
+               .O(XLXN_2));
+   GND XLXI_3 (.G(Dispositivo[7]));
+   VCC XLXI_4 (.P(Dispositivo[6]));
+   VCC XLXI_5 (.P(Dispositivo[5]));
+   VCC XLXI_6 (.P(Dispositivo[4]));
+   VCC XLXI_7 (.P(Dispositivo[2]));
+   GND XLXI_8 (.G(Dispositivo[3]));
+   GND XLXI_9 (.G(Dispositivo[1]));
+   GND XLXI_10 (.G(Dispositivo[0]));
+endmodule

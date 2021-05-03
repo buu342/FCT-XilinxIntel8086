@@ -1,0 +1,138 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : ISE
+//  /   /         Filename : TestBenchWaveFormRAM8x1.ant
+// /___/   /\     Timestamp : Sun Jun 10 19:45:52 2018
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: TestBenchWaveFormRAM8x1
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module TestBenchWaveFormRAM8x1;
+    reg [7:0] Bus_In = 8'b00000000;
+    reg Clear = 1'b0;
+    reg CLK = 1'b0;
+    reg Complement = 1'b0;
+    reg Increment = 1'b0;
+    reg Read = 1'b0;
+    reg Write = 1'b0;
+    wire [7:0] Bus_D;
+    wire [7:0] Bus_Q;
+
+    parameter PERIOD = 200;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 100;
+
+    initial    // Clock process for CLK
+    begin
+        #OFFSET;
+        forever
+        begin
+            CLK = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) CLK = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    Ram8x1 UUT (
+        .Bus_In(Bus_In),
+        .Clear(Clear),
+        .CLK(CLK),
+        .Complement(Complement),
+        .Increment(Increment),
+        .Read(Read),
+        .Write(Write),
+        .Bus_D(Bus_D),
+        .Bus_Q(Bus_Q));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock CLK
+        #0;
+        ANNOTATE_Bus_D;
+        ANNOTATE_Bus_Q;
+        #OFFSET;
+        forever begin
+            #115;
+            ANNOTATE_Bus_D;
+            ANNOTATE_Bus_Q;
+            #85;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\SL2aluno\\Desktop\\Nosso\\TrabalhoFinalSL2\\TestBenchWaveFormRAM8x1.ano");
+        #10200 // Final time:  10200 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  185ns
+        #185;
+        Write = 1'b1;
+        Bus_In = 8'b00000011;
+        // -------------------------------------
+        // -------------  Current Time:  385ns
+        #200;
+        Read = 1'b1;
+        Write = 1'b0;
+        Bus_In = 8'b00000000;
+        // -------------------------------------
+        // -------------  Current Time:  585ns
+        #200;
+        Increment = 1'b1;
+        Read = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  785ns
+        #200;
+        Complement = 1'b1;
+        Increment = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  985ns
+        #200;
+        Clear = 1'b1;
+        Complement = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  1185ns
+        #200;
+        Clear = 1'b0;
+        Read = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  1385ns
+        #200;
+        Read = 1'b0;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_Bus_D;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,Bus_D,%b]", $time, Bus_D);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_Bus_Q;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,Bus_Q,%b]", $time, Bus_Q);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

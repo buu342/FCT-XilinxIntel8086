@@ -1,0 +1,3 @@
+MODULE TestBenchWaveFormJustCPU
+SUBMODULE justcpu
+INSTANCE UUT

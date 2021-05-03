@@ -1,0 +1,136 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : ISE
+//  /   /         Filename : TestBenchWaveFormALU_selfcheck.ant
+// /___/   /\     Timestamp : Fri Jun 08 17:42:06 2018
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: TestBenchWaveFormALU_selfcheck
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module TestBenchWaveFormALU_selfcheck;
+    reg CLK = 1'b0;
+    reg CTMP = 1'b0;
+    reg ITMP = 1'b0;
+    reg LDTMP = 1'b0;
+    reg RAND = 1'b0;
+    reg RDADD = 1'b0;
+    reg RNOT = 1'b0;
+    reg Rsignals = 1'b0;
+    reg RTMP = 1'b0;
+    reg RXOR = 1'b0;
+    reg WTMP = 1'b0;
+    reg ZTMP = 1'b0;
+    wire [7:0] Bus_Q;
+    wire [7:0] Flags;
+    reg [7:0] Data_Bus$inout$reg = 8'bZZZZZZZZ;
+    wire [7:0] Data_Bus = Data_Bus$inout$reg;
+
+    parameter PERIOD = 200;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 100;
+
+    initial    // Clock process for CLK
+    begin
+        #OFFSET;
+        forever
+        begin
+            CLK = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) CLK = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    Chip UUT (
+        .CLK(CLK),
+        .CTMP(CTMP),
+        .ITMP(ITMP),
+        .LDTMP(LDTMP),
+        .RAND(RAND),
+        .RDADD(RDADD),
+        .RNOT(RNOT),
+        .Rsignals(Rsignals),
+        .RTMP(RTMP),
+        .RXOR(RXOR),
+        .WTMP(WTMP),
+        .ZTMP(ZTMP),
+        .Bus_Q(Bus_Q),
+        .Flags(Flags),
+        .Data_Bus(Data_Bus));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock CLK
+        #0;
+        ANNOTATE_Bus_Q;
+        ANNOTATE_Flags;
+        #OFFSET;
+        forever begin
+            #115;
+            ANNOTATE_Bus_Q;
+            ANNOTATE_Flags;
+            #85;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\SL2aluno\\Desktop\\SL Trabalho Final 2\\TrabalhoFinalSL2\\TestBenchWaveFormALU_selfcheck.ano");
+        #10200 // Final time:  10200 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  185ns
+        #185;
+        LDTMP = 1'b1;
+        WTMP = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  385ns
+        #200;
+        LDTMP = 1'b0;
+        RDADD = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  585ns
+        #200;
+        RDADD = 1'b0;
+        RTMP = 1'b1;
+        WTMP = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  785ns
+        #200;
+        RTMP = 1'b0;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_Bus_Q;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,Bus_Q,%b]", $time, Bus_Q);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_Flags;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,Flags,%b]", $time, Flags);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

@@ -1,0 +1,53 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : ISE
+//  /   /         Filename : TestBenchWaveFormJustCPU.tfw
+// /___/   /\     Timestamp : Mon Jun 11 00:24:58 2018
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: TestBenchWaveFormJustCPU
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module TestBenchWaveFormJustCPU;
+    reg CLK = 1'b0;
+    reg INTR = 1'b0;
+    reg RESET = 1'b0;
+    reg [7:0] DATA_BUS$inout$reg = 8'bZZZZZZZZ;
+    wire [7:0] DATA_BUS = DATA_BUS$inout$reg;
+
+    parameter PERIOD = 200;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 100;
+
+    initial    // Clock process for CLK
+    begin
+        #OFFSET;
+        forever
+        begin
+            CLK = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) CLK = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    justcpu UUT (
+        .CLK(CLK),
+        .INTR(INTR),
+        .RESET(RESET),
+        .DATA_BUS(DATA_BUS));
+
+    initial begin
+    end
+
+endmodule
+

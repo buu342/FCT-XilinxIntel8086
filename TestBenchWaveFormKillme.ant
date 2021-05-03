@@ -1,0 +1,218 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : ISE
+//  /   /         Filename : TestBenchWaveFormKillme.ant
+// /___/   /\     Timestamp : Sun Jun 10 23:09:25 2018
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: TestBenchWaveFormKillme
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module TestBenchWaveFormKillme;
+    reg CA = 1'b0;
+    reg CB = 1'b0;
+    reg CC = 1'b0;
+    reg CD = 1'b0;
+    reg CLK = 1'b0;
+    reg CPC = 1'b0;
+    reg C_TMP = 1'b0;
+    reg IA = 1'b0;
+    reg IB = 1'b0;
+    reg IC = 1'b0;
+    reg ID = 1'b0;
+    reg INTR = 1'b0;
+    reg RBus = 1'b0;
+    reg RC = 1'b0;
+    reg RDAND = 1'b0;
+    reg RDOR = 1'b0;
+    reg Reset = 1'b0;
+    reg ZA = 1'b0;
+    reg ZB = 1'b0;
+    reg ZC = 1'b0;
+    reg ZD = 1'b0;
+    reg ZSP = 1'b0;
+    reg ZTMP = 1'b0;
+    wire [7:0] A_Q;
+    wire [7:0] B_Q;
+    wire [7:0] C_Q;
+    wire [7:0] D_Q;
+    wire [7:0] QALU;
+    wire [7:0] QF;
+    wire [7:0] QIR;
+    wire [7:0] Q_PC;
+    reg [7:0] Data_Bus$inout$reg = 8'bZZZZZZZZ;
+    wire [7:0] Data_Bus = Data_Bus$inout$reg;
+
+    parameter PERIOD = 200;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 100;
+
+    initial    // Clock process for CLK
+    begin
+        #OFFSET;
+        forever
+        begin
+            CLK = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) CLK = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    killme UUT (
+        .CA(CA),
+        .CB(CB),
+        .CC(CC),
+        .CD(CD),
+        .CLK(CLK),
+        .CPC(CPC),
+        .C_TMP(C_TMP),
+        .IA(IA),
+        .IB(IB),
+        .IC(IC),
+        .ID(ID),
+        .INTR(INTR),
+        .RBus(RBus),
+        .RC(RC),
+        .RDAND(RDAND),
+        .RDOR(RDOR),
+        .Reset(Reset),
+        .ZA(ZA),
+        .ZB(ZB),
+        .ZC(ZC),
+        .ZD(ZD),
+        .ZSP(ZSP),
+        .ZTMP(ZTMP),
+        .A_Q(A_Q),
+        .B_Q(B_Q),
+        .C_Q(C_Q),
+        .D_Q(D_Q),
+        .QALU(QALU),
+        .QF(QF),
+        .QIR(QIR),
+        .Q_PC(Q_PC),
+        .Data_Bus(Data_Bus));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock CLK
+        #0;
+        ANNOTATE_A_Q;
+        ANNOTATE_B_Q;
+        ANNOTATE_C_Q;
+        ANNOTATE_D_Q;
+        ANNOTATE_QALU;
+        ANNOTATE_QF;
+        ANNOTATE_QIR;
+        ANNOTATE_Q_PC;
+        #OFFSET;
+        forever begin
+            #115;
+            ANNOTATE_A_Q;
+            ANNOTATE_B_Q;
+            ANNOTATE_C_Q;
+            ANNOTATE_D_Q;
+            ANNOTATE_QALU;
+            ANNOTATE_QF;
+            ANNOTATE_QIR;
+            ANNOTATE_Q_PC;
+            #85;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\SL2aluno\\Desktop\\Nosso\\TrabalhoFinalSL2\\TestBenchWaveFormKillme.ano");
+        #10200 // Final time:  10200 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  100ns
+        #100;
+        Reset = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  385ns
+        #285;
+        Reset = 1'b0;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_A_Q;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,A_Q,%b]", $time, A_Q);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_B_Q;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,B_Q,%b]", $time, B_Q);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_C_Q;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,C_Q,%b]", $time, C_Q);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_D_Q;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,D_Q,%b]", $time, D_Q);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_QALU;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,QALU,%b]", $time, QALU);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_QF;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,QF,%b]", $time, QF);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_QIR;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,QIR,%b]", $time, QIR);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_Q_PC;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,Q_PC,%b]", $time, Q_PC);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

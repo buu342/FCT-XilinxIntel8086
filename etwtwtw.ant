@@ -1,0 +1,126 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : ISE
+//  /   /         Filename : etwtwtw.ant
+// /___/   /\     Timestamp : Sun Jun 10 20:54:09 2018
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: etwtwtw
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module etwtwtw;
+    reg IPC = 1'b0;
+    reg RMAR = 1'b0;
+    reg RPC = 1'b0;
+    reg WIR = 1'b0;
+    reg WMAR = 1'b0;
+    wire [7:0] Addr_BUS;
+    wire [7:0] QALU;
+    wire [7:0] QF;
+    wire [7:0] QIR;
+    reg [7:0] Data_Bus$inout$reg = 8'bZZZZZZZZ;
+    wire [7:0] Data_Bus = Data_Bus$inout$reg;
+
+    parameter PERIOD = 200;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 100;
+
+    initial    // Clock process for IPC
+    begin
+        #OFFSET;
+        forever
+        begin
+            IPC = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) IPC = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    killme UUT (
+        .IPC(IPC),
+        .RMAR(RMAR),
+        .RPC(RPC),
+        .WIR(WIR),
+        .WMAR(WMAR),
+        .Addr_BUS(Addr_BUS),
+        .QALU(QALU),
+        .QF(QF),
+        .QIR(QIR),
+        .Data_Bus(Data_Bus));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock IPC
+        #0;
+        ANNOTATE_Addr_BUS;
+        ANNOTATE_QALU;
+        ANNOTATE_QF;
+        ANNOTATE_QIR;
+        #OFFSET;
+        forever begin
+            #115;
+            ANNOTATE_Addr_BUS;
+            ANNOTATE_QALU;
+            ANNOTATE_QF;
+            ANNOTATE_QIR;
+            #85;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\SL2aluno\\Desktop\\Nosso\\TrabalhoFinalSL2\\etwtwtw.ano");
+        #10200 // Final time:  10200 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+    end
+
+    task ANNOTATE_Addr_BUS;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,Addr_BUS,%b]", $time, Addr_BUS);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_QALU;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,QALU,%b]", $time, QALU);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_QF;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,QF,%b]", $time, QF);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_QIR;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,QIR,%b]", $time, QIR);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

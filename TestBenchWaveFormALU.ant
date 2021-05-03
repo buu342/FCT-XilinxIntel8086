@@ -1,0 +1,176 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : ISE
+//  /   /         Filename : TestBenchWaveFormALU.ant
+// /___/   /\     Timestamp : Sun Jun 10 23:01:17 2018
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: TestBenchWaveFormALU
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module TestBenchWaveFormALU;
+    reg [7:0] ALU_IN = 8'b00000000;
+    reg CLK = 1'b0;
+    reg C_TMP = 1'b0;
+    reg I_TMP = 1'b0;
+    reg LDTMP = 1'b0;
+    reg RDADD = 1'b0;
+    reg RDAND = 1'b0;
+    reg RDNOT = 1'b0;
+    reg RDOR = 1'b0;
+    reg RDXOR = 1'b0;
+    reg Rsignals = 1'b0;
+    reg R_TMP = 1'b0;
+    reg W_TMP = 1'b0;
+    reg Z_TMP = 1'b0;
+    wire [7:0] ALU_OUT;
+    wire [7:0] Bus_Q;
+    wire [7:0] Flags;
+
+    parameter PERIOD = 200;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 100;
+
+    initial    // Clock process for CLK
+    begin
+        #OFFSET;
+        forever
+        begin
+            CLK = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) CLK = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    ALU UUT (
+        .ALU_IN(ALU_IN),
+        .CLK(CLK),
+        .C_TMP(C_TMP),
+        .I_TMP(I_TMP),
+        .LDTMP(LDTMP),
+        .RDADD(RDADD),
+        .RDAND(RDAND),
+        .RDNOT(RDNOT),
+        .RDOR(RDOR),
+        .RDXOR(RDXOR),
+        .Rsignals(Rsignals),
+        .R_TMP(R_TMP),
+        .W_TMP(W_TMP),
+        .Z_TMP(Z_TMP),
+        .ALU_OUT(ALU_OUT),
+        .Bus_Q(Bus_Q),
+        .Flags(Flags));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock CLK
+        #0;
+        ANNOTATE_ALU_OUT;
+        ANNOTATE_Bus_Q;
+        ANNOTATE_Flags;
+        #OFFSET;
+        forever begin
+            #115;
+            ANNOTATE_ALU_OUT;
+            ANNOTATE_Bus_Q;
+            ANNOTATE_Flags;
+            #85;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\SL2aluno\\Desktop\\Nosso\\TrabalhoFinalSL2\\TestBenchWaveFormALU.ano");
+        #10200 // Final time:  10200 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  185ns
+        #185;
+        LDTMP = 1'b1;
+        W_TMP = 1'b1;
+        ALU_IN = 8'b00001010;
+        // -------------------------------------
+        // -------------  Current Time:  385ns
+        #200;
+        LDTMP = 1'b0;
+        R_TMP = 1'b1;
+        W_TMP = 1'b0;
+        ALU_IN = 8'bZZZZZZZZ;
+        // -------------------------------------
+        // -------------  Current Time:  585ns
+        #200;
+        I_TMP = 1'b1;
+        R_TMP = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  785ns
+        #200;
+        I_TMP = 1'b0;
+        R_TMP = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  985ns
+        #200;
+        C_TMP = 1'b1;
+        R_TMP = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  1185ns
+        #200;
+        C_TMP = 1'b0;
+        R_TMP = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  1385ns
+        #200;
+        R_TMP = 1'b0;
+        Z_TMP = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  1585ns
+        #200;
+        R_TMP = 1'b1;
+        Z_TMP = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  1785ns
+        #200;
+        R_TMP = 1'b0;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_ALU_OUT;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,ALU_OUT,%b]", $time, ALU_OUT);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_Bus_Q;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,Bus_Q,%b]", $time, Bus_Q);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_Flags;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,Flags,%b]", $time, Flags);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

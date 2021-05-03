@@ -1,0 +1,7 @@
+verilog work "Ram4x1.vf"
+verilog work "XOR8_BUS.vf"
+verilog work "Ram8x1.vf"
+verilog work "OR8_BUS.vf"
+verilog work "AND8_BUS.vf"
+verilog work "ALU.vf"
+verilog work C:/Xilinx92i/verilog/src/glbl.v

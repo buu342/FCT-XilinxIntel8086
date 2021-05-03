@@ -1,0 +1,225 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : sch2verilog
+//  /   /         Filename : Chip.vf
+// /___/   /\     Timestamp : 06/09/2018 02:43:12
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx92i\bin\nt\sch2verilog.exe -intstyle ise -family spartan3e -w "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TrabalhoFinalSL2/Chip.sch" Chip.vf
+//Design Name: Chip
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module Chip(CA, 
+            CB, 
+            CC, 
+            CD, 
+            CLK, 
+            CPC, 
+            CTMP, 
+            DSP, 
+            IA, 
+            IB, 
+            IC, 
+            ID, 
+            IPC, 
+            ISP, 
+            ITMP, 
+            LDTMP, 
+            RA, 
+            RB, 
+            RBus, 
+            RC, 
+            RD, 
+            RDADD, 
+            RDAND, 
+            RDNOT, 
+            RDOR, 
+            RDXOR, 
+            RF, 
+            RIR, 
+            RMAR, 
+            RPC, 
+            Rsignals, 
+            RSP, 
+            RTMP, 
+            WA, 
+            WB, 
+            WC, 
+            WD, 
+            WF, 
+            WIR, 
+            WMAR, 
+            WPC, 
+            WSP, 
+            WTMP, 
+            ZA, 
+            ZB, 
+            ZC, 
+            ZD, 
+            ZPC, 
+            ZSP, 
+            ZTMP, 
+            Addr_BUS, 
+            QALU, 
+            QF, 
+            QIR, 
+            Data_Bus);
+
+    input CA;
+    input CB;
+    input CC;
+    input CD;
+    input CLK;
+    input CPC;
+    input CTMP;
+    input DSP;
+    input IA;
+    input IB;
+    input IC;
+    input ID;
+    input IPC;
+    input ISP;
+    input ITMP;
+    input LDTMP;
+    input RA;
+    input RB;
+    input RBus;
+    input RC;
+    input RD;
+    input RDADD;
+    input RDAND;
+    input RDNOT;
+    input RDOR;
+    input RDXOR;
+    input RF;
+    input RIR;
+    input RMAR;
+    input RPC;
+    input Rsignals;
+    input RSP;
+    input RTMP;
+    input WA;
+    input WB;
+    input WC;
+    input WD;
+    input WF;
+    input WIR;
+    input WMAR;
+    input WPC;
+    input WSP;
+    input WTMP;
+    input ZA;
+    input ZB;
+    input ZC;
+    input ZD;
+    input ZPC;
+    input ZSP;
+    input ZTMP;
+   output [7:0] Addr_BUS;
+   output [7:0] QALU;
+   output [7:0] QF;
+   output [7:0] QIR;
+    inout [7:0] Data_Bus;
+   
+   wire [7:0] Flags;
+   
+   Ram8x1 A (.Bus_In(Data_Bus[7:0]), 
+             .Clear(ZA), 
+             .CLK(CLK), 
+             .Complement(CA), 
+             .Increment(IA), 
+             .Read(RA), 
+             .Write(WA), 
+             .Bus_D(Data_Bus[7:0]), 
+             .Bus_Q());
+   Ram8x1 B (.Bus_In(Data_Bus[7:0]), 
+             .Clear(ZB), 
+             .CLK(CLK), 
+             .Complement(CB), 
+             .Increment(IB), 
+             .Read(RB), 
+             .Write(WB), 
+             .Bus_D(Data_Bus[7:0]), 
+             .Bus_Q());
+   Ram8x1 C (.Bus_In(Data_Bus[7:0]), 
+             .Clear(ZC), 
+             .CLK(CLK), 
+             .Complement(CC), 
+             .Increment(IC), 
+             .Read(RC), 
+             .Write(WC), 
+             .Bus_D(Data_Bus[7:0]), 
+             .Bus_Q());
+   Ram8x1 D (.Bus_In(Data_Bus[7:0]), 
+             .Clear(ZD), 
+             .CLK(CLK), 
+             .Complement(CD), 
+             .Increment(ID), 
+             .Read(RD), 
+             .Write(WD), 
+             .Bus_D(Data_Bus[7:0]), 
+             .Bus_Q());
+   ALU XLXI_2 (.ALU_IN(Data_Bus[7:0]), 
+               .CLK(CLK), 
+               .C_TMP(CTMP), 
+               .I_TMP(ITMP), 
+               .LDTMP(LDTMP), 
+               .RDADD(RDADD), 
+               .RDAND(RDAND), 
+               .RDNOT(RDNOT), 
+               .RDOR(RDOR), 
+               .RDXOR(RDXOR), 
+               .Rsignals(Rsignals), 
+               .R_TMP(RTMP), 
+               .W_TMP(WTMP), 
+               .Z_TMP(ZTMP), 
+               .ALU_OUT(Data_Bus[7:0]), 
+               .Bus_Q(QALU[7:0]), 
+               .Flags(Flags[7:0]));
+   FR XLXI_5 (.CLK(CLK), 
+              .Flags_In(Data_Bus[7:0]), 
+              .RB(RBus), 
+              .RF(RF), 
+              .WF(WF), 
+              .FROut(Data_Bus[7:0]), 
+              .QF(QF[7:0]), 
+              .Flags(Flags[7:0]));
+   IR XLXI_7 (.CLK(CLK), 
+              .IR_In(Data_Bus[7:0]), 
+              .RIR(RIR), 
+              .WIR(WIR), 
+              .Bus_Q(QIR[7:0]), 
+              .IR_Out(Data_Bus[7:0]));
+   PC XLXI_8 (.CLK(CLK), 
+              .CPC(CPC), 
+              .IPC(IPC), 
+              .PC_In(Data_Bus[7:0]), 
+              .RPC(RPC), 
+              .WPC(WPC), 
+              .ZPC(ZPC), 
+              .PC_Out(Data_Bus[7:0]));
+   MAR XLXI_9 (.CLK(CLK), 
+               .MAR_In(Data_Bus[7:0]), 
+               .RMAR(RMAR), 
+               .WMAR(WMAR), 
+               .MAR_Out(Addr_BUS[7:0]));
+   SP XLXI_10 (.CLK(CLK), 
+               .DSP(DSP), 
+               .ISP(ISP), 
+               .RSP(RSP), 
+               .SP_In(Data_Bus[7:0]), 
+               .WSP(WSP), 
+               .ZSP(ZSP), 
+               .SP_Out(Data_Bus[7:0]));
+endmodule

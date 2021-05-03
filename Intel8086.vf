@@ -1,0 +1,249 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : sch2verilog
+//  /   /         Filename : Intel8086.vf
+// /___/   /\     Timestamp : 06/11/2018 00:24:50
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx92i\bin\nt\sch2verilog.exe -intstyle ise -family spartan3e -w "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TrabalhoFinalSL2/Intel8086.sch" Intel8086.vf
+//Design Name: Intel8086
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module Intel8086(CLK, 
+                 INTR, 
+                 RESET, 
+                 A_Q, 
+                 B_Q, 
+                 C_Q, 
+                 D_Q, 
+                 IPC, 
+                 QALU, 
+                 RA, 
+                 RPC, 
+                 Data_Bus, 
+                 F_Q, 
+                 OP);
+
+    input CLK;
+    input INTR;
+    input RESET;
+   output [7:0] A_Q;
+   output [7:0] B_Q;
+   output [7:0] C_Q;
+   output [7:0] D_Q;
+   output IPC;
+   output [7:0] QALU;
+   output RA;
+   output RPC;
+    inout [7:0] Data_Bus;
+    inout [7:0] F_Q;
+    inout [7:0] OP;
+   
+   wire [7:0] XLXN_3;
+   wire XLXN_8;
+   wire XLXN_9;
+   wire XLXN_10;
+   wire XLXN_11;
+   wire XLXN_12;
+   wire XLXN_13;
+   wire XLXN_14;
+   wire XLXN_15;
+   wire XLXN_16;
+   wire XLXN_17;
+   wire XLXN_18;
+   wire XLXN_20;
+   wire XLXN_21;
+   wire XLXN_22;
+   wire XLXN_24;
+   wire XLXN_25;
+   wire XLXN_26;
+   wire XLXN_27;
+   wire XLXN_28;
+   wire XLXN_30;
+   wire XLXN_31;
+   wire XLXN_32;
+   wire XLXN_33;
+   wire XLXN_34;
+   wire XLXN_36;
+   wire XLXN_70;
+   wire XLXN_210;
+   wire XLXN_211;
+   wire XLXN_212;
+   wire XLXN_213;
+   wire XLXN_214;
+   wire XLXN_215;
+   wire XLXN_216;
+   wire XLXN_217;
+   wire XLXN_218;
+   wire XLXN_219;
+   wire XLXN_220;
+   wire XLXN_221;
+   wire XLXN_222;
+   wire XLXN_223;
+   wire XLXN_224;
+   wire XLXN_225;
+   wire XLXN_226;
+   wire XLXN_227;
+   wire XLXN_228;
+   wire XLXN_229;
+   wire XLXN_230;
+   wire XLXN_234;
+   wire XLXN_235;
+   wire XLXN_239;
+   wire XLXN_242;
+   wire RPC_DUMMY;
+   wire IPC_DUMMY;
+   
+   assign IPC = IPC_DUMMY;
+   assign RPC = RPC_DUMMY;
+   GND XLXI_13 (.G(XLXN_211));
+   GND XLXI_14 (.G(XLXN_212));
+   GND XLXI_15 (.G(XLXN_213));
+   GND XLXI_16 (.G(XLXN_214));
+   GND XLXI_17 (.G(XLXN_215));
+   GND XLXI_18 (.G(XLXN_216));
+   GND XLXI_19 (.G(XLXN_217));
+   GND XLXI_20 (.G(XLXN_218));
+   GND XLXI_21 (.G(XLXN_219));
+   GND XLXI_23 (.G(XLXN_220));
+   GND XLXI_24 (.G(XLXN_221));
+   GND XLXI_26 (.G(XLXN_222));
+   GND XLXI_29 (.G(XLXN_224));
+   GND XLXI_30 (.G(XLXN_225));
+   GND XLXI_31 (.G(XLXN_223));
+   GND XLXI_32 (.G(XLXN_226));
+   GND XLXI_33 (.G(XLXN_227));
+   GND XLXI_34 (.G(XLXN_228));
+   GND XLXI_36 (.G(XLXN_229));
+   GND XLXI_37 (.G(XLXN_230));
+   DISP_116 XLXI_38 (.INTA(XLXN_234), 
+                     .Disp_Out(Data_Bus[7:0]));
+   DISP_92 XLXI_39 (.ADDR_BUS(XLXN_3[7:0]), 
+                    .CLK(CLK), 
+                    .Data_In(Data_Bus[7:0]), 
+                    .EIO(XLXN_239), 
+                    .nRW(XLXN_30), 
+                    .DISP67_OUT(Data_Bus[7:0]));
+   DISP_67 XLXI_40 (.ADDR_BUS(XLXN_3[7:0]), 
+                    .CLK(CLK), 
+                    .Data_In(Data_Bus[7:0]), 
+                    .EIO(XLXN_239), 
+                    .nRW(XLXN_30), 
+                    .DISP67_OUT(Data_Bus[7:0]));
+   GND XLXI_42 (.G(XLXN_242));
+   ram_rom256 XLXI_43 (.address(XLXN_3[7:0]), 
+                       .CLK(CLK), 
+                       .Enable(XLXN_235), 
+                       .nrw(XLXN_30), 
+                       .ram_in(Data_Bus[7:0]), 
+                       .ramrom_out(Data_Bus[7:0]));
+   CONTROLADOR XLXI_44 (.CLK(CLK), 
+                        .FLAGS(F_Q[7:0]), 
+                        .INTR(INTR), 
+                        .OP(OP[7:0]), 
+                        .RESET(RESET), 
+                        .DSP(XLXN_31), 
+                        .EIO(XLXN_239), 
+                        .ERAM(XLXN_235), 
+                        .INTA(XLXN_234), 
+                        .IPC(IPC_DUMMY), 
+                        .ISP(XLXN_26), 
+                        .ITMP(XLXN_25), 
+                        .LDTMP(XLXN_24), 
+                        .nRW(XLXN_30), 
+                        .RA(RA), 
+                        .RB(XLXN_22), 
+                        .RD(XLXN_21), 
+                        .RDADD(XLXN_20), 
+                        .RDNOT(XLXN_18), 
+                        .RDXOR(XLXN_17), 
+                        .RF(XLXN_70), 
+                        .RIR(XLXN_210), 
+                        .RMAR(XLXN_36), 
+                        .RPC(RPC_DUMMY), 
+                        .RSignals(XLXN_16), 
+                        .RSP(XLXN_28), 
+                        .RTMP(XLXN_15), 
+                        .WA(XLXN_14), 
+                        .WB(XLXN_13), 
+                        .WC(XLXN_12), 
+                        .WD(XLXN_11), 
+                        .WF(XLXN_10), 
+                        .WIR(XLXN_34), 
+                        .WMAR(XLXN_33), 
+                        .WPC(XLXN_27), 
+                        .WSP(XLXN_9), 
+                        .WTMP(XLXN_8), 
+                        .ZPC(XLXN_32));
+   CPU XLXI_74 (.CA(XLXN_222), 
+                .CB(XLXN_219), 
+                .CC(XLXN_216), 
+                .CD(XLXN_212), 
+                .CLK(CLK), 
+                .CPC(XLXN_229), 
+                .CTMP(XLXN_228), 
+                .DSP(XLXN_31), 
+                .IA(XLXN_225), 
+                .IB(XLXN_218), 
+                .IC(XLXN_217), 
+                .ID(XLXN_213), 
+                .IPC(IPC_DUMMY), 
+                .ISP(XLXN_26), 
+                .ITMP(XLXN_25), 
+                .LDTMP(XLXN_24), 
+                .RA(XLXN_242), 
+                .RB(XLXN_22), 
+                .RBus(XLXN_223), 
+                .RC(XLXN_214), 
+                .RD(XLXN_21), 
+                .RDADD(XLXN_20), 
+                .RDAND(XLXN_226), 
+                .RDNOT(XLXN_18), 
+                .RDOR(XLXN_224), 
+                .RDXOR(XLXN_17), 
+                .RF(XLXN_70), 
+                .RIR(XLXN_210), 
+                .RMAR(XLXN_36), 
+                .RPC(RPC_DUMMY), 
+                .RSignals(XLXN_16), 
+                .RSP(XLXN_28), 
+                .RTMP(XLXN_15), 
+                .WA(XLXN_14), 
+                .WB(XLXN_13), 
+                .WC(XLXN_12), 
+                .WD(XLXN_11), 
+                .WF(XLXN_10), 
+                .WIR(XLXN_34), 
+                .WMAR(XLXN_33), 
+                .WPC(XLXN_27), 
+                .WSP(XLXN_9), 
+                .WTMP(XLXN_8), 
+                .ZA(XLXN_221), 
+                .ZB(XLXN_220), 
+                .ZC(XLXN_215), 
+                .ZD(XLXN_211), 
+                .ZPC(XLXN_32), 
+                .ZSP(XLXN_230), 
+                .ZTMP(XLXN_227), 
+                .ADDR_BUS(XLXN_3[7:0]), 
+                .A_Q(A_Q[7:0]), 
+                .B_Q(B_Q[7:0]), 
+                .C_Q(C_Q[7:0]), 
+                .D_Q(D_Q[7:0]), 
+                .QALU(QALU[7:0]), 
+                .QF(F_Q[7:0]), 
+                .QIR(OP[7:0]), 
+                .Q_PC(), 
+                .Data_Bus(Data_Bus[7:0]));
+endmodule

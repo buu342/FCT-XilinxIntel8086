@@ -1,0 +1,272 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : sch2verilog
+//  /   /         Filename : ram128.vf
+// /___/   /\     Timestamp : 06/11/2018 00:24:41
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx92i\bin\nt\sch2verilog.exe -intstyle ise -family spartan3e -w "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TrabalhoFinalSL2/ram128.sch" ram128.vf
+//Design Name: ram128
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module OBUFT8_MXILINX_ram128(I, 
+                             T, 
+                             O);
+
+    input [7:0] I;
+    input T;
+   output [7:0] O;
+   
+   
+   OBUFT I_36_30 (.I(I[0]), 
+                  .T(T), 
+                  .O(O[0]));
+   // synthesis attribute IOSTANDARD of I_36_30 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_30 is "SLOW"
+   // synthesis attribute DRIVE of I_36_30 is "12"
+   OBUFT I_36_31 (.I(I[1]), 
+                  .T(T), 
+                  .O(O[1]));
+   // synthesis attribute IOSTANDARD of I_36_31 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_31 is "SLOW"
+   // synthesis attribute DRIVE of I_36_31 is "12"
+   OBUFT I_36_32 (.I(I[2]), 
+                  .T(T), 
+                  .O(O[2]));
+   // synthesis attribute IOSTANDARD of I_36_32 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_32 is "SLOW"
+   // synthesis attribute DRIVE of I_36_32 is "12"
+   OBUFT I_36_33 (.I(I[3]), 
+                  .T(T), 
+                  .O(O[3]));
+   // synthesis attribute IOSTANDARD of I_36_33 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_33 is "SLOW"
+   // synthesis attribute DRIVE of I_36_33 is "12"
+   OBUFT I_36_34 (.I(I[7]), 
+                  .T(T), 
+                  .O(O[7]));
+   // synthesis attribute IOSTANDARD of I_36_34 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_34 is "SLOW"
+   // synthesis attribute DRIVE of I_36_34 is "12"
+   OBUFT I_36_35 (.I(I[6]), 
+                  .T(T), 
+                  .O(O[6]));
+   // synthesis attribute IOSTANDARD of I_36_35 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_35 is "SLOW"
+   // synthesis attribute DRIVE of I_36_35 is "12"
+   OBUFT I_36_36 (.I(I[5]), 
+                  .T(T), 
+                  .O(O[5]));
+   // synthesis attribute IOSTANDARD of I_36_36 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_36 is "SLOW"
+   // synthesis attribute DRIVE of I_36_36 is "12"
+   OBUFT I_36_37 (.I(I[4]), 
+                  .T(T), 
+                  .O(O[4]));
+   // synthesis attribute IOSTANDARD of I_36_37 is "DEFAULT"
+   // synthesis attribute SLEW of I_36_37 is "SLOW"
+   // synthesis attribute DRIVE of I_36_37 is "12"
+endmodule
+`timescale 1ns / 1ps
+
+module ram128(a0, 
+              a1, 
+              a2, 
+              a3, 
+              a4, 
+              a5, 
+              a6, 
+              clk, 
+              d_in, 
+              Enable, 
+              nrw, 
+              d_out);
+
+    input a0;
+    input a1;
+    input a2;
+    input a3;
+    input a4;
+    input a5;
+    input a6;
+    input clk;
+    input [7:0] d_in;
+    input Enable;
+    input nrw;
+   output [7:0] d_out;
+   
+   wire XLXN_15;
+   wire XLXN_111;
+   wire XLXN_112;
+   wire XLXN_113;
+   wire XLXN_114;
+   wire XLXN_121;
+   wire XLXN_122;
+   wire XLXN_123;
+   wire XLXN_126;
+   wire XLXN_127;
+   wire XLXN_128;
+   wire [7:0] XLXN_133;
+   wire [7:0] XLXN_135;
+   wire XLXN_151;
+   wire XLXN_152;
+   wire XLXN_153;
+   wire XLXN_154;
+   wire [7:0] XLXN_274;
+   wire XLXN_276;
+   wire [7:0] XLXN_307;
+   wire [7:0] d_out_DUMMY;
+   
+   assign d_out[7:0] = d_out_DUMMY[7:0];
+   RAM32X8S XLXI_1 (.A0(a0), 
+                    .A1(a1), 
+                    .A2(a2), 
+                    .A3(a3), 
+                    .A4(a4), 
+                    .D(d_in[7:0]), 
+                    .WCLK(clk), 
+                    .WE(XLXN_15), 
+                    .O(XLXN_274[7:0]));
+   defparam XLXI_1.INIT_00 = 32'h00000000;
+   defparam XLXI_1.INIT_01 = 32'h00000000;
+   defparam XLXI_1.INIT_02 = 32'h00000000;
+   defparam XLXI_1.INIT_03 = 32'h00000000;
+   defparam XLXI_1.INIT_04 = 32'h00000000;
+   defparam XLXI_1.INIT_05 = 32'h00000000;
+   defparam XLXI_1.INIT_06 = 32'h00000000;
+   defparam XLXI_1.INIT_07 = 32'h00000000;
+   OBUFT8_MXILINX_ram128 XLXI_5 (.I(XLXN_274[7:0]), 
+                                 .T(XLXN_276), 
+                                 .O(d_out_DUMMY[7:0]));
+   // synthesis attribute HU_SET of XLXI_5 is "XLXI_5_0"
+   RAM32X8S XLXI_15 (.A0(a0), 
+                     .A1(a1), 
+                     .A2(a2), 
+                     .A3(a3), 
+                     .A4(a4), 
+                     .D(d_in[7:0]), 
+                     .WCLK(clk), 
+                     .WE(XLXN_122), 
+                     .O(XLXN_135[7:0]));
+   defparam XLXI_15.INIT_00 = 32'h00000000;
+   defparam XLXI_15.INIT_01 = 32'h00000000;
+   defparam XLXI_15.INIT_02 = 32'h00000000;
+   defparam XLXI_15.INIT_03 = 32'h00000000;
+   defparam XLXI_15.INIT_04 = 32'h00000000;
+   defparam XLXI_15.INIT_05 = 32'h00000000;
+   defparam XLXI_15.INIT_06 = 32'h00000000;
+   defparam XLXI_15.INIT_07 = 32'h00000000;
+   RAM32X8S XLXI_16 (.A0(a0), 
+                     .A1(a1), 
+                     .A2(a2), 
+                     .A3(a3), 
+                     .A4(a4), 
+                     .D(d_in[7:0]), 
+                     .WCLK(clk), 
+                     .WE(XLXN_123), 
+                     .O(XLXN_307[7:0]));
+   defparam XLXI_16.INIT_00 = 32'h00000000;
+   defparam XLXI_16.INIT_01 = 32'h00000000;
+   defparam XLXI_16.INIT_02 = 32'h00000000;
+   defparam XLXI_16.INIT_03 = 32'h00000000;
+   defparam XLXI_16.INIT_04 = 32'h00000000;
+   defparam XLXI_16.INIT_05 = 32'h00000000;
+   defparam XLXI_16.INIT_06 = 32'h00000000;
+   defparam XLXI_16.INIT_07 = 32'h00000000;
+   RAM32X8S XLXI_17 (.A0(a0), 
+                     .A1(a1), 
+                     .A2(a2), 
+                     .A3(a3), 
+                     .A4(a4), 
+                     .D(d_in[7:0]), 
+                     .WCLK(clk), 
+                     .WE(XLXN_121), 
+                     .O(XLXN_133[7:0]));
+   defparam XLXI_17.INIT_00 = 32'h00000000;
+   defparam XLXI_17.INIT_01 = 32'h00000000;
+   defparam XLXI_17.INIT_02 = 32'h00000000;
+   defparam XLXI_17.INIT_03 = 32'h00000000;
+   defparam XLXI_17.INIT_04 = 32'h00000000;
+   defparam XLXI_17.INIT_05 = 32'h00000000;
+   defparam XLXI_17.INIT_06 = 32'h00000000;
+   defparam XLXI_17.INIT_07 = 32'h00000000;
+   AND4 XLXI_27 (.I0(XLXN_111), 
+                 .I1(XLXN_112), 
+                 .I2(Enable), 
+                 .I3(nrw), 
+                 .O(XLXN_15));
+   AND4 XLXI_28 (.I0(a6), 
+                 .I1(XLXN_114), 
+                 .I2(Enable), 
+                 .I3(nrw), 
+                 .O(XLXN_121));
+   AND4 XLXI_29 (.I0(XLXN_113), 
+                 .I1(a5), 
+                 .I2(Enable), 
+                 .I3(nrw), 
+                 .O(XLXN_122));
+   AND4 XLXI_30 (.I0(a6), 
+                 .I1(a5), 
+                 .I2(Enable), 
+                 .I3(nrw), 
+                 .O(XLXN_123));
+   INV XLXI_32 (.I(a6), 
+                .O(XLXN_111));
+   INV XLXI_33 (.I(a5), 
+                .O(XLXN_112));
+   INV XLXI_34 (.I(a6), 
+                .O(XLXN_113));
+   INV XLXI_35 (.I(a5), 
+                .O(XLXN_114));
+   OBUFT8_MXILINX_ram128 XLXI_36 (.I(XLXN_133[7:0]), 
+                                  .T(XLXN_126), 
+                                  .O(d_out_DUMMY[7:0]));
+   // synthesis attribute HU_SET of XLXI_36 is "XLXI_36_2"
+   OBUFT8_MXILINX_ram128 XLXI_37 (.I(XLXN_135[7:0]), 
+                                  .T(XLXN_127), 
+                                  .O(d_out_DUMMY[7:0]));
+   // synthesis attribute HU_SET of XLXI_37 is "XLXI_37_1"
+   OBUFT8_MXILINX_ram128 XLXI_38 (.I(XLXN_307[7:0]), 
+                                  .T(XLXN_128), 
+                                  .O(d_out_DUMMY[7:0]));
+   // synthesis attribute HU_SET of XLXI_38 is "XLXI_38_3"
+   OR4B1 XLXI_43 (.I0(Enable), 
+                  .I1(nrw), 
+                  .I2(a6), 
+                  .I3(a5), 
+                  .O(XLXN_276));
+   OR4B1 XLXI_44 (.I0(Enable), 
+                  .I1(nrw), 
+                  .I2(XLXN_154), 
+                  .I3(a5), 
+                  .O(XLXN_126));
+   OR4B1 XLXI_45 (.I0(Enable), 
+                  .I1(nrw), 
+                  .I2(a6), 
+                  .I3(XLXN_153), 
+                  .O(XLXN_127));
+   OR4B1 XLXI_46 (.I0(Enable), 
+                  .I1(nrw), 
+                  .I2(XLXN_151), 
+                  .I3(XLXN_152), 
+                  .O(XLXN_128));
+   INV XLXI_59 (.I(a6), 
+                .O(XLXN_151));
+   INV XLXI_60 (.I(a5), 
+                .O(XLXN_152));
+   INV XLXI_61 (.I(a5), 
+                .O(XLXN_153));
+   INV XLXI_62 (.I(a6), 
+                .O(XLXN_154));
+endmodule

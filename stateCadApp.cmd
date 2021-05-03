@@ -1,0 +1,4 @@
+-file "C:\Documents and Settings\SL2aluno\Desktop\Nosso\TrabalhoFinalSL2\Controlador.dia"
+-lang vhdl
+-state onehot
+-vend xst

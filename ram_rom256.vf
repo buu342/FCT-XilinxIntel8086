@@ -1,0 +1,70 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.2i
+//  \   \         Application : sch2verilog
+//  /   /         Filename : ram_rom256.vf
+// /___/   /\     Timestamp : 06/11/2018 00:24:42
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx92i\bin\nt\sch2verilog.exe -intstyle ise -family spartan3e -w "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TrabalhoFinalSL2/ram_rom256.sch" ram_rom256.vf
+//Design Name: ram_rom256
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module ram_rom256(address, 
+                  CLK, 
+                  Enable, 
+                  nrw, 
+                  ram_in, 
+                  ramrom_out);
+
+    input [7:0] address;
+    input CLK;
+    input Enable;
+    input nrw;
+    input [7:0] ram_in;
+   output [7:0] ramrom_out;
+   
+   wire XLXN_1;
+   wire XLXN_2;
+   wire [7:0] ramrom_out_DUMMY;
+   
+   assign ramrom_out[7:0] = ramrom_out_DUMMY[7:0];
+   ram128 XLXI_2 (.a0(address[0]), 
+                  .a1(address[1]), 
+                  .a2(address[2]), 
+                  .a3(address[3]), 
+                  .a4(address[4]), 
+                  .a5(address[5]), 
+                  .a6(address[6]), 
+                  .clk(CLK), 
+                  .d_in(ram_in[7:0]), 
+                  .Enable(XLXN_2), 
+                  .nrw(nrw), 
+                  .d_out(ramrom_out_DUMMY[7:0]));
+   AND2 XLXI_5 (.I0(address[7]), 
+                .I1(Enable), 
+                .O(XLXN_2));
+   AND3B2 XLXI_13 (.I0(nrw), 
+                   .I1(address[7]), 
+                   .I2(Enable), 
+                   .O(XLXN_1));
+   rom128 XLXI_15 (.a0(address[0]), 
+                   .a1(address[1]), 
+                   .a2(address[2]), 
+                   .a3(address[3]), 
+                   .a4(address[4]), 
+                   .a5(address[5]), 
+                   .a6(address[6]), 
+                   .enable(XLXN_1), 
+                   .rom_out(ramrom_out_DUMMY[7:0]));
+endmodule

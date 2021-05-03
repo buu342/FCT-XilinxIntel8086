@@ -1,0 +1,3 @@
+sch2verilog -intstyle ise -family spartan3e   -w "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TrabalhoFinalSL2/ttt.sch" ttt.vf
+sch2verilog -intstyle ise -family spartan3e   -w "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TrabalhoFinalSL2/ttt.sch" ttt.vf
+sch2verilog -intstyle ise -family spartan3e   -w "C:/Documents and Settings/SL2aluno/Desktop/Nosso/TrabalhoFinalSL2/ttt.sch" ttt.vf
